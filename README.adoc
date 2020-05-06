@@ -1,0 +1,52 @@
+# Java 练习
+
+image:src/docs/asciidoc/language-java-blue.svg[]
+image:src/docs/asciidoc/license-apache 2.0-red.svg["License",link="https://www.apache.org/licenses/LICENSE-2.0.html"]
+
+WARNING: 这是一个 Java 练习库
+
+== 体系结构
+
+|===
+| package | 描述
+
+| org.ylzl.eden.practice.collections
+| Java 集合
+
+| org.ylzl.eden.practice.concurrent
+| Java 并发
+
+| org.ylzl.eden.practice.datastructures
+| Java 数据结构
+
+| org.ylzl.eden.practice.io
+| Java I/O
+
+| org.ylzl.eden.practice.jdk8
+| Java 8 LTS
+
+| org.ylzl.eden.practice.jdk11
+| Java 11 LTS
+
+| org.ylzl.eden.practice.jdk17
+| 版本任你发，我用 Java 8
+
+| org.ylzl.eden.practice.jvm
+| Java 虚拟机
+
+| org.ylzl.eden.practice.leetcode
+| Leetcode 题库
+
+| org.ylzl.eden.practice.searches
+| Java 查找
+
+| org.ylzl.eden.practice.sorts
+| Java 排序
+
+| org.ylzl.eden.practice.thread
+| Java 多线程
+|===
+
+== 许可声明
+
+遵循 https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 License]

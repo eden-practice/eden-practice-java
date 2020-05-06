@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>eden-practice</artifactId>
+    <name>practice</name>
+    <description>Eden* Practice For Java</description>
+
+	<parent>
+		<groupId>org.ylzl</groupId>
+		<artifactId>eden-spring-boot-parent</artifactId>
+		<version>1.0.0.RELEASE</version>
+		<relativePath/>
+	</parent>
+
+	<developers>
+		<developer>
+			<id>gyl</id>
+			<name>guoyuanlu</name>
+			<email>shiyindaxiaojie@gmail.com</email>
+			<organization>ylzl</organization>
+			<organizationUrl>https://github.com/eden-lab</organizationUrl>
+			<roles>
+				<role>DevOps</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/eden-lab/eden-practice</url>
+		<connection>scm:git:git://github.com/eden-lab/eden-practice.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/eden-lab/eden-practice.git</developerConnection>
+	</scm>
+
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub OWNER Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/eden-lab/eden-spring-boot</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+    <dependencies>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+    </dependencies>
+
+</project>
