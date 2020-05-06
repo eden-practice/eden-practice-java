@@ -29,7 +29,7 @@ WARNING: 这是一个 Java 练习库
 | Java 11 LTS
 
 | org.ylzl.eden.practice.jdk17
-| 版本任你发，我用 Java 8
+| Java 17 LTS
 
 | org.ylzl.eden.practice.jvm
 | Java 虚拟机
