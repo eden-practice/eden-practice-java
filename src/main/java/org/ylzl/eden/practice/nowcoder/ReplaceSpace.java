@@ -21,10 +21,10 @@ package org.ylzl.eden.practice.nowcoder;
  * 替换空格为 %20
  *
  * @author gyl
- * @see https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&tqId=11155&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking&from=cyc_github
- * @see StringBuffer.append
- * @see StringBuffer.charAt
- * @see StringBuffer.setCharAt
+ * @see <a href="https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&tqId=11155&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指 Offer 原题</a>
+ * @see java.lang.StringBuffer#append(String)
+ * @see java.lang.StringBuffer#charAt
+ * @see java.lang.StringBuffer#setCharAt
  * @since 1.0.0
  */
 public class ReplaceSpace {

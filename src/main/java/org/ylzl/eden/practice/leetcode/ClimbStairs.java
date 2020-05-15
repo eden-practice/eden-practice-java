@@ -20,8 +20,10 @@ package org.ylzl.eden.practice.leetcode;
 /**
  * 爬楼梯，给定一个 n 阶，每次只能爬 1 - 2 阶，统计有几种方法爬到 n 阶。
  *
+ * 使用斐波那契数列实现
+ *
  * @author gyl
- * @see https://leetcode-cn.com/problems/climbing-stairs/submissions
+ * @see <a href="https://leetcode-cn.com/problems/climbing-stairs/submissions">leetcode 原题</a>
  * @since 1.0.0
  */
 public class ClimbStairs {
