@@ -7,6 +7,5 @@ package org.ylzl.eden.practice.designpattern.singleton;
  * @since 2.0.0
  */
 public enum EnumSingleton {
-
-	INSTANCE;
+  INSTANCE;
 }

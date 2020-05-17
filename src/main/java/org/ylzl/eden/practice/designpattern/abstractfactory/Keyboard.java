@@ -8,5 +8,5 @@ package org.ylzl.eden.practice.designpattern.abstractfactory;
  */
 public interface Keyboard {
 
-	void show();
+  void show();
 }

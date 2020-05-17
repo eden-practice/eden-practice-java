@@ -25,27 +25,29 @@ package org.ylzl.eden.practice.thread;
  */
 public class MaxThreads {
 
-	private static Object lock = new Object();
+  private static Object lock = new Object();
 
-	private static int count = 0;
+  private static int count = 0;
 
-	public static void main(String[] args) {
-		for (; ; ) {
-			new Thread(new Runnable() {
-				public void run() {
-					synchronized (lock) {
-						count += 1;
-						System.out.println("当前线程数：" + count);
-					}
-					for (; ; ) {
-						try {
-							Thread.sleep(1000);
-						} catch (Exception e) {
-							System.err.println(e);
-						}
-					}
-				}
-			}).start();
-		}
-	}
+  public static void main(String[] args) {
+    for (; ; ) {
+      new Thread(
+              new Runnable() {
+                public void run() {
+                  synchronized (lock) {
+                    count += 1;
+                    System.out.println("当前线程数：" + count);
+                  }
+                  for (; ; ) {
+                    try {
+                      Thread.sleep(1000);
+                    } catch (Exception e) {
+                      System.err.println(e);
+                    }
+                  }
+                }
+              })
+          .start();
+    }
+  }
 }

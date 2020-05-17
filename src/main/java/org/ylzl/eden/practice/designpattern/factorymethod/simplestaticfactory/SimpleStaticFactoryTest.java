@@ -1,6 +1,6 @@
 package org.ylzl.eden.practice.designpattern.factorymethod.simplestaticfactory;
 
-import org.ylzl.eden.practice.designpattern.factorymethod.BenzCarProduct;
+import org.ylzl.eden.practice.designpattern.factorymethod.Computer;
 
 /**
  * 简单静态工厂测试
@@ -11,7 +11,7 @@ import org.ylzl.eden.practice.designpattern.factorymethod.BenzCarProduct;
 public class SimpleStaticFactoryTest {
 
   public static void main(String[] args) {
-	  BenzCarProduct product = SimpleStaticFactory.getInstance('S');
-	  product.show();
+    Computer computer = SimpleStaticFactory.getInstance('S');
+    computer.show();
   }
 }

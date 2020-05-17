@@ -10,6 +10,6 @@ public class WinKeyboard implements Keyboard {
 
   @Override
   public void show() {
-	  System.out.println("Windows 键盘");
+    System.out.println("Windows 键盘");
   }
 }

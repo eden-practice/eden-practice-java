@@ -25,23 +25,23 @@ package org.ylzl.eden.practice.jvm;
  */
 public class XssTriggerStackOverflowError {
 
-	private static int dept = 0;
+  private static int dept = 0;
 
-	public static void recursion() {
-		// 减少局部变量的声明也可以节省栈帧大小，增加调用深度
-		long a = 1;
-		dept++;
-		recursion();
-	}
+  public static void recursion() {
+    // 减少局部变量的声明也可以节省栈帧大小，增加调用深度
+    long a = 1;
+    dept++;
+    recursion();
+  }
 
-	public static void main(String args[]) {
-		try {
-			recursion();
-		} catch (Throwable e) {
-			// 设置 -Xss128k，输出 363，只有一个局部变量时，栈的深度提升到 1822
-			// 设置 -Xss1024k，输出 24486~29980
-			System.out.println("调用栈的深度为：" + dept);
-			e.printStackTrace();
-		}
-	}
+  public static void main(String args[]) {
+    try {
+      recursion();
+    } catch (Throwable e) {
+      // 设置 -Xss128k，输出 363，只有一个局部变量时，栈的深度提升到 1822
+      // 设置 -Xss1024k，输出 24486~29980
+      System.out.println("调用栈的深度为：" + dept);
+      e.printStackTrace();
+    }
+  }
 }

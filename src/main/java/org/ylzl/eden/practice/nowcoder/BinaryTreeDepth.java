@@ -22,25 +22,27 @@ package org.ylzl.eden.practice.nowcoder;
  *
  * @author gyl
  * @since 1.0.0
- * @see <a href="https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&tqId=11191&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指 Offer 原题</a>
+ * @see <a
+ *     href="https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&tqId=11191&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指
+ *     Offer 原题</a>
  * @see java.lang.Math#max(int, int)
  */
 public class BinaryTreeDepth {
 
-	public int treeDepth(TreeNode root) {
-		if (root == null) {
-			return 0;
-		}
-		return Math.max(treeDepth(root.left), treeDepth(root.right)) + 1;
-	}
+  public int treeDepth(TreeNode root) {
+    if (root == null) {
+      return 0;
+    }
+    return Math.max(treeDepth(root.left), treeDepth(root.right)) + 1;
+  }
 
-	public class TreeNode {
-		int val = 0;
-		TreeNode left = null;
-		TreeNode right = null;
+  public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
 
-		public TreeNode(int val) {
-			this.val = val;
-		}
-	}
+    public TreeNode(int val) {
+      this.val = val;
+    }
+  }
 }

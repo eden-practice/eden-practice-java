@@ -9,7 +9,7 @@ package org.ylzl.eden.practice.designpattern.factorymethod;
 public class FactoryMethodTest {
 
   public static void main(String[] args) {
-	  ComputerFactory factory = new WinFactory();
-	  factory.produceComputer().show();
+    ComputerFactory factory = new WinFactory();
+    factory.produceComputer().show();
   }
 }

@@ -9,8 +9,8 @@ package org.ylzl.eden.practice.designpattern.abstractfactory;
 public class AbstractFactoryTest {
 
   public static void main(String[] args) {
-	  HardwareFactory factory = new MacFactory();
-	  factory.produceKeyboard().show();
-	  factory.produceMouse().show();
+    HardwareFactory factory = new MacFactory();
+    factory.produceKeyboard().show();
+    factory.produceMouse().show();
   }
 }

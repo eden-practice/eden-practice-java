@@ -8,5 +8,5 @@ package org.ylzl.eden.practice.designpattern.factorymethod;
  */
 public interface Computer {
 
-	void show();
+  void show();
 }
