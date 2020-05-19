@@ -19,6 +19,9 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.datastructures
 | Java 数据结构
 
+| org.ylzl.eden.practice.designpattern
+| Java 设计模式
+
 | org.ylzl.eden.practice.io
 | Java I/O
 
