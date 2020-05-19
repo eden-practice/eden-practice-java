@@ -8,15 +8,31 @@ package org.ylzl.eden.practice.designpattern.singleton;
  */
 public class HungrySingleton {
 
-	private static HungrySingleton INSTANCE = new HungrySingleton();
+  private static HungrySingleton INSTANCE = new HungrySingleton();
 
-	private HungrySingleton() {}
+  private static boolean initialized = false;
 
-	public static HungrySingleton getInstance() {
-		return INSTANCE;
-	}
+  private HungrySingleton() {
+    synchronized (LazySingleton.class) { // 防止反射破坏单例
+      if (!initialized) {
+        initialized = !initialized;
+      } else {
+        throw new RuntimeException("单例模式下不可重复初始化");
+      }
+    }
+  }
 
-	private Object readResolve() {
-		return INSTANCE;
-	}
+  public static HungrySingleton getInstance() {
+    return INSTANCE;
+  }
+
+  /**
+   * 防止序列化/反序列化破坏单例
+   *
+   * @see java.io.ObjectInputStream#readObject()
+   * @return
+   */
+  private Object readResolve() {
+    return INSTANCE;
+  }
 }

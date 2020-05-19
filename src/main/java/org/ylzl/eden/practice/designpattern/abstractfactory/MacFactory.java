@@ -8,13 +8,13 @@ package org.ylzl.eden.practice.designpattern.abstractfactory;
  */
 public class MacFactory implements HardwareFactory {
 
-	@Override
-	public Keyboard produceKeyboard() {
-		return new MacKeyboard();
-	}
+  @Override
+  public Keyboard produceKeyboard() {
+    return new MacKeyboard();
+  }
 
-	@Override
-	public Mouse produceMouse() {
-		return new MacMouse();
-	}
+  @Override
+  public Mouse produceMouse() {
+    return new MacMouse();
+  }
 }

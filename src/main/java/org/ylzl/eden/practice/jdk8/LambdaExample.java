@@ -23,7 +23,4 @@ package org.ylzl.eden.practice.jdk8;
  * @author gyl
  * @since 1.0.0
  */
-public class LambdaExample {
-
-
-}
+public class LambdaExample {}

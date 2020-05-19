@@ -10,6 +10,6 @@ public class WinComputer implements Computer {
 
   @Override
   public void show() {
-	  System.out.println("Win 电脑");
+    System.out.println("Win 电脑");
   }
 }

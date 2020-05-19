@@ -8,13 +8,13 @@ package org.ylzl.eden.practice.designpattern.abstractfactory;
  */
 public class WinFactory implements HardwareFactory {
 
-	@Override
-	public Keyboard produceKeyboard() {
-		return new WinKeyboard();
-	}
+  @Override
+  public Keyboard produceKeyboard() {
+    return new WinKeyboard();
+  }
 
-	@Override
-	public Mouse produceMouse() {
-		return new WinMouse();
-	}
+  @Override
+  public Mouse produceMouse() {
+    return new WinMouse();
+  }
 }

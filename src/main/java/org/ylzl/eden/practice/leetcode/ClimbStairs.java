@@ -20,7 +20,7 @@ package org.ylzl.eden.practice.leetcode;
 /**
  * 爬楼梯，给定一个 n 阶，每次只能爬 1 - 2 阶，统计有几种方法爬到 n 阶。
  *
- * 使用斐波那契数列实现
+ * <p>使用斐波那契数列实现
  *
  * @author gyl
  * @see <a href="https://leetcode-cn.com/problems/climbing-stairs/submissions">leetcode 原题</a>
@@ -28,18 +28,18 @@ package org.ylzl.eden.practice.leetcode;
  */
 public class ClimbStairs {
 
-	public int climbStairs(int n) {
-		if (n <= 2) {
-			return n;
-		}
+  public int climbStairs(int n) {
+    if (n <= 2) {
+      return n;
+    }
 
-		int fisrt = 2; // 差 2 阶
-		int second = 1; // 差 1 阶
-		for (int i=2; i <n; i++) {
-			int sum = fisrt + second; // p(n) = p(n-1) + p(n-2);
-			second = fisrt;
-			fisrt = sum;
-		}
-		return fisrt;
-	}
+    int fisrt = 2; // 差 2 阶
+    int second = 1; // 差 1 阶
+    for (int i = 2; i < n; i++) {
+      int sum = fisrt + second; // p(n) = p(n-1) + p(n-2);
+      second = fisrt;
+      fisrt = sum;
+    }
+    return fisrt;
+  }
 }

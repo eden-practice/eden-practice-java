@@ -8,5 +8,5 @@ package org.ylzl.eden.practice.designpattern.abstractfactory;
  */
 public interface Mouse {
 
-	void show();
+  void show();
 }

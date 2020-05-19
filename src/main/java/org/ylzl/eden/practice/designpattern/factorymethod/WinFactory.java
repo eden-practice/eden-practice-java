@@ -8,8 +8,8 @@ package org.ylzl.eden.practice.designpattern.factorymethod;
  */
 public class WinFactory implements ComputerFactory {
 
-	@Override
-	public Computer produceComputer() {
-		return new WinComputer();
-	}
+  @Override
+  public Computer produceComputer() {
+    return new WinComputer();
+  }
 }

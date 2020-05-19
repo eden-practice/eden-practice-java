@@ -23,29 +23,30 @@ import java.util.ArrayList;
  * 从尾到头打印链表
  *
  * @author gyl
- * @see <a href="https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035?tpId=13&tqId=11156&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指 Offer 原题</a>
+ * @see <a
+ *     href="https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035?tpId=13&tqId=11156&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指
+ *     Offer 原题</a>
  * @since 1.0.0
  */
 public class PrintListFromTailToHead {
 
-	public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-		ArrayList<Integer> arrayList = new ArrayList<>();
-		if (listNode != null) {
-			arrayList.addAll(printListFromTailToHead(listNode)); // 从尾到头
-			arrayList.add(listNode.val);
-		}
-		return arrayList;
-	}
+  public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    if (listNode != null) {
+      arrayList.addAll(printListFromTailToHead(listNode)); // 从尾到头
+      arrayList.add(listNode.val);
+    }
+    return arrayList;
+  }
 
-	public class ListNode {
+  public class ListNode {
 
-		int val;
+    int val;
 
-		ListNode next = null;
+    ListNode next = null;
 
-		ListNode(int val) {
-			this.val = val;
-		}
-	}
-
+    ListNode(int val) {
+      this.val = val;
+    }
+  }
 }
