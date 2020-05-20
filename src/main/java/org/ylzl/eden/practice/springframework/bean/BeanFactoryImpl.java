@@ -46,84 +46,74 @@ public class BeanFactoryImpl implements BeanFactory {
   private final Map<String, Object> earlySingletonObjects =
       new HashMap<String, Object>(1 << 4); // 解决循环依赖
 
-  public Object getBean(String name) throws Exception {
+  @Override
+  public Object getInstance(String name) throws Exception {
     Object bean = beanMap.get(name);
     if (bean != null) {
       return bean;
     }
-    bean = createBean(beanDefinitionMap.get(name));
+
+    bean = createInstance(beanDefinitionMap.get(name));
     if (bean != null) {
       earlySingletonObjects.put(name, bean);
-      populatebean(bean);
+      populate(bean);
       beanMap.put(name, bean);
       earlySingletonObjects.remove(name);
     }
     return bean;
   }
 
-  protected void registerBean(String name, BeanDefinition bd) {
+  protected void register(String name, BeanDefinition bd) {
     beanDefinitionMap.put(name, bd);
     beanNames.add(name);
   }
 
-  private Object createBean(BeanDefinition beanDefinition) throws Exception {
+  private Object createInstance(BeanDefinition beanDefinition) throws Exception {
     String beanName = beanDefinition.getClassName();
-    Class clz = loadClass(beanName);
-    if (clz == null) {
-      throw new Exception("can not find bean by beanName");
-    }
+    Class clazz = loadClass(beanName);
     List<ConstructorArg> constructorArgs = beanDefinition.getConstructorArgs();
     if (constructorArgs != null && !constructorArgs.isEmpty()) {
       List<Object> objects = new ArrayList<>();
       for (ConstructorArg constructorArg : constructorArgs) {
-        objects.add(getBean(constructorArg.getRef()));
+        objects.add(getInstance(constructorArg.getRef()));
       }
-      return instance(clz, clz.getConstructor(), objects.toArray());
-    } else {
-      return instance(clz, null, null);
+      return newInstance(clazz, clazz.getConstructor(), objects.toArray());
     }
+    return newInstance(clazz, null, null);
   }
 
-  private void populatebean(Object bean) throws Exception {
+  private void populate(Object bean) throws Exception {
     Field[] fields = bean.getClass().getSuperclass().getDeclaredFields();
-    if (fields != null && fields.length > 0) {
-      for (Field field : fields) {
-        String beanName = field.getName();
-        beanName = StringUtils.uncapitalize(beanName);
-        if (beanNames.contains(field.getName())) {
-          Object fieldBean = getBean(beanName);
-          if (fieldBean != null) {
-            injectField(field, bean, fieldBean);
-          }
+    if (fields == null || fields.length == 0) {
+      return;
+    }
+    for (Field field : fields) {
+      if (beanNames.contains(field.getName())) {
+        Object fieldBean = getInstance(resolveFieldName(field));
+        if (fieldBean != null) {
+          field.setAccessible(true);
+          field.set(bean, fieldBean);
         }
       }
     }
   }
 
-  public static <T> T instance(Class<T> clz, Constructor ctr, Object[] args) {
+  private static <T> T newInstance(Class<T> clazz, Constructor constructor, Object[] args) {
     Enhancer enhancer = new Enhancer();
-    enhancer.setSuperclass(clz);
+    enhancer.setSuperclass(clazz);
     enhancer.setCallback(NoOp.INSTANCE);
-    if (ctr == null) {
+    if (constructor == null) {
       return (T) enhancer.create();
     } else {
-      return (T) enhancer.create(ctr.getParameterTypes(), args);
+      return (T) enhancer.create(constructor.getParameterTypes(), args);
     }
   }
 
-  public static void injectField(Field field, Object obj, Object value)
-      throws IllegalAccessException {
-    if (field != null) {
-      field.setAccessible(true);
-      field.set(obj, value);
-    }
+  private static Class loadClass(String className) throws ClassNotFoundException {
+    return Thread.currentThread().getContextClassLoader().loadClass(className);
   }
 
-  public static ClassLoader getDefultClassLoader() {
-    return Thread.currentThread().getContextClassLoader();
-  }
-
-  public static Class loadClass(String className) throws ClassNotFoundException {
-    return getDefultClassLoader().loadClass(className);
+  private String resolveFieldName(Field field) {
+    return StringUtils.uncapitalize(field.getName());
   }
 }

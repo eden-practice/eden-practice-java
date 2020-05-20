@@ -25,5 +25,5 @@ package org.ylzl.eden.practice.springframework.bean;
  */
 public interface BeanFactory {
 
-	Object getBean(String name) throws Exception;
+	Object getInstance(String beanName) throws Exception;
 }
