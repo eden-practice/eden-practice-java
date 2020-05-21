@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class StaticProxyTest {
 
   @Test
-  void invoke() {
+  void assertThatInvokeSuccess() {
 	  StaticProxy proxy = new StaticProxy();
 	  assertEquals(proxy.invoke(), true);
   }

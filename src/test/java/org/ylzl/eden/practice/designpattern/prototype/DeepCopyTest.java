@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DeepCopyTest {
 
   @Test
-  void testClone() throws CloneNotSupportedException {
+  void assertThatClone() throws CloneNotSupportedException {
 	  DeepCopy source = new DeepCopy();
 	  source.setName("111");
 	  DeepCopy.Inner inner = new DeepCopy.Inner();

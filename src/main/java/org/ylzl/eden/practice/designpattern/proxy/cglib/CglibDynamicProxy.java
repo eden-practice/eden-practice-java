@@ -28,6 +28,8 @@ import java.lang.reflect.Method;
 /**
  * Cglib 动态代理
  *
+ * <p>Cglib 代理基于 asm 字节码增强技术生成代理类，支持非接口 Bean</p>
+ *
  * @author gyl
  * @since 1.0.0
  */

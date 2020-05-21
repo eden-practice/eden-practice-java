@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ShallowCopyTest {
 
 	@Test
-	void testClone() throws CloneNotSupportedException {
+	void assertThatClone() throws CloneNotSupportedException {
 		ShallowCopy source = new ShallowCopy();
 		source.setName("111");
 		ShallowCopy.Inner inner = new ShallowCopy.Inner();

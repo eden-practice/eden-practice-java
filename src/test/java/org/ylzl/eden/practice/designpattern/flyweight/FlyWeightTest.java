@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class FlyWeightTest {
 
   @Test
-  void cached() {
+  void assertThatCached() {
     assertEquals(FlyWeight.cached(-129), false);
     assertEquals(FlyWeight.cached(128), true);
   }

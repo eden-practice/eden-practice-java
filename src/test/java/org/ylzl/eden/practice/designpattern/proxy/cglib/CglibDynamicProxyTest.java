@@ -20,6 +20,7 @@ package org.ylzl.eden.practice.designpattern.proxy.cglib;
 import org.junit.jupiter.api.Test;
 import org.ylzl.eden.practice.designpattern.proxy.Bean;
 import org.ylzl.eden.practice.designpattern.proxy.BeanImpl;
+import org.ylzl.eden.practice.designpattern.proxy.StandaloneBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,12 +33,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CglibDynamicProxyTest {
 
   @Test
-  void invoke() {
+  void assertThatInvokeBeanSuccess() {
     Bean proxy = CglibDynamicProxy.newProxyInstance(BeanImpl.class);
     assertEquals(proxy.invoke(), true);
 
     // 保存生成的代理类到磁盘
     System.out.println(
         "代理类路径：" + CglibDynamicProxy.generateProxyClassFile(BeanImpl.class, "CglibDynamicProxy$"));
+  }
+
+  @Test
+  void assertThatInvokeStandaloneBeanSuccess() {
+    StandaloneBean standaloneProxy = CglibDynamicProxy.newProxyInstance(StandaloneBean.class);
+    assertEquals(standaloneProxy.invoke(), true);
   }
 }

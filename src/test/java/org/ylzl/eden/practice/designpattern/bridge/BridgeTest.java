@@ -29,11 +29,25 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class BridgeTest {
 
+  @Test
+  public void assertRegisterMySQLDriver() {
+    assertDoesNotThrow(
+        () -> {
+          Class.forName(MySQLDriver.class.getName());
+          Connection conn = DriverManager.getConnection("jdbc:mysql", null);
+          assertNotNull(conn);
+          assertEquals(conn.getType().toLowerCase(), "mysql");
+        });
+  }
+
 	@Test
-	public void register() throws ClassNotFoundException {
-		Class.forName(MySQLDriver.class.getName());
-		Connection conn = DriverManager.getConnection("mysql", null);
-		assertNotNull(conn);
-		assertEquals(conn.getType().toLowerCase(), "mysql");
+	public void assertRegisterOracleDriver() {
+		assertDoesNotThrow(
+			() -> {
+				Class.forName(OracleDriver.class.getName());
+				Connection conn = DriverManager.getConnection("jdbc:oracle", null);
+				assertNotNull(conn);
+				assertEquals(conn.getType().toLowerCase(), "oracle");
+			});
 	}
 }

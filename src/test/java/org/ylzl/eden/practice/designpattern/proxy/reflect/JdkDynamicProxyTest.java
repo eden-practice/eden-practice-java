@@ -20,11 +20,15 @@ package org.ylzl.eden.practice.designpattern.proxy.reflect;
 import org.junit.jupiter.api.Test;
 import org.ylzl.eden.practice.designpattern.proxy.Bean;
 import org.ylzl.eden.practice.designpattern.proxy.BeanImpl;
+import org.ylzl.eden.practice.designpattern.proxy.StandaloneBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * JDK 动态代理测试
+ *
+ * <p>JDK 代理需要从对象找到对应上游的接口，因此被代理的对象需要实现接口</p>
  *
  * @author gyl
  * @since 2.0.0
@@ -32,12 +36,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class JdkDynamicProxyTest {
 
   @Test
-  void invoke() {
+  void assertThatInvokeBeanSuccess() {
     Bean bean = JdkDynamicProxy.newProxyInstance(new BeanImpl());
     assertEquals(bean.invoke(), true);
     // 保存生成的代理类到磁盘
     // System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", true);
     System.out.println(
         "代理类路径：" + JdkDynamicProxy.generateProxyClassFile(BeanImpl.class, "JdkDynamicProxy$"));
+  }
+
+  @Test
+  void assertThatInvokeStandaloneBeanFailed() {
+    assertThrows(
+        ClassCastException.class,
+        () -> {
+          StandaloneBean standaloneProxy = JdkDynamicProxy.newProxyInstance(new StandaloneBean());
+          standaloneProxy.invoke();
+        });
   }
 }
