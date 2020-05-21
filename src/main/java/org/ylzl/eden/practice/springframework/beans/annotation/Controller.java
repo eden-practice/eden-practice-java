@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.bean;
+package org.ylzl.eden.practice.springframework.beans.annotation;
 
 /**
  * TODO
@@ -23,7 +23,17 @@ package org.ylzl.eden.practice.springframework.bean;
  * @author gyl
  * @since 1.0.0
  */
-public interface BeanFactory {
 
-	Object getInstance(String beanName) throws Exception;
+import org.ylzl.eden.practice.springframework.core.annotation.AliasFor;
+
+import java.lang.annotation.*;
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Indexed
+public @interface Controller {
+
+	@AliasFor(annotation = Component.class)
+	String value() default "";
 }
