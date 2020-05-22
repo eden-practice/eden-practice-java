@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.bean.config;
+package org.ylzl.eden.practice.springframework.beans.annotation;
 
-import lombok.Data;
+import java.lang.annotation.*;
 
 /**
  * TODO
@@ -25,12 +25,8 @@ import lombok.Data;
  * @author gyl
  * @since 1.0.0
  */
-@Data
-public class PropertyArg {
-
-	private String name;
-
-	private String value;
-
-	private String typeName;
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Indexed {
 }

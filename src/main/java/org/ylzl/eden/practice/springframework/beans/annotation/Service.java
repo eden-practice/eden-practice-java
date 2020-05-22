@@ -15,9 +15,11 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.bean.config;
+package org.ylzl.eden.practice.springframework.beans.annotation;
 
-import lombok.Data;
+import org.ylzl.eden.practice.springframework.core.annotation.AliasFor;
+
+import java.lang.annotation.*;
 
 /**
  * TODO
@@ -25,14 +27,13 @@ import lombok.Data;
  * @author gyl
  * @since 1.0.0
  */
-@Data
-public class ConstructorArg {
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Indexed
+public @interface Service {
 
-  private int index;
-
-  private String ref;
-
-  private String name;
-
-  private Object value;
+	@AliasFor(annotation = Component.class)
+	String value() default "";
 }
+

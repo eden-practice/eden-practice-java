@@ -15,17 +15,20 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.bean;
+package org.ylzl.eden.practice.springframework.beans.factory;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.NoOp;
 import org.springframework.util.StringUtils;
-import org.ylzl.eden.practice.springframework.bean.config.BeanDefinition;
-import org.ylzl.eden.practice.springframework.bean.config.ConstructorArg;
+import org.ylzl.eden.practice.springframework.beans.config.BeanDefinition;
+import org.ylzl.eden.practice.springframework.beans.config.ConstructorArg;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -34,38 +37,68 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author gyl
  * @since 1.0.0
  */
-public class BeanFactoryImpl implements BeanFactory {
+public abstract class AbstractBeanFactory implements ConfigurableBeanFactory {
 
-  private static final ConcurrentHashMap<String, Object> beanMap = new ConcurrentHashMap<>();
+  private static final ConcurrentHashMap<String, Object> beanInstances = new ConcurrentHashMap<>();
 
-  private static final ConcurrentHashMap<String, BeanDefinition> beanDefinitionMap =
+  private static final ConcurrentHashMap<String, BeanDefinition> beanDefinitions =
       new ConcurrentHashMap<>();
-
-  private static final Set<String> beanNames = Collections.synchronizedSet(new HashSet<>());
 
   private final Map<String, Object> earlySingletonObjects =
       new HashMap<String, Object>(1 << 4); // 解决循环依赖
 
   @Override
-  public Object getInstance(String name) throws Exception {
-    Object bean = beanMap.get(name);
+  public Object getBean(String name) throws Exception {
+    Object bean = beanInstances.get(name);
     if (bean != null) {
       return bean;
     }
 
-    bean = createInstance(beanDefinitionMap.get(name));
+    Object earlyBean = earlySingletonObjects.get(name);
+    if (earlyBean != null) {
+      return earlyBean;
+    }
+
+    bean = createInstance(beanDefinitions.get(name));
     if (bean != null) {
       earlySingletonObjects.put(name, bean);
       populate(bean);
-      beanMap.put(name, bean);
+      beanInstances.put(name, bean);
       earlySingletonObjects.remove(name);
     }
     return bean;
   }
 
-  protected void register(String name, BeanDefinition bd) {
-    beanDefinitionMap.put(name, bd);
-    beanNames.add(name);
+  @Override
+  public Object getBean(String name, Object... args) throws Exception {
+    return null;
+  }
+
+  @Override
+  public <T> T getBean(String name, Class<T> requiredType) throws Exception {
+    return null;
+  }
+
+  @Override
+  public <T> T getBean(Class<T> requiredType) throws Exception {
+    return null;
+  }
+
+  @Override
+  public void registerSingleton(String beanName, Object singletonObject) {}
+
+  @Override
+  public boolean containsSingleton(String beanName) {
+    return false;
+  }
+
+  @Override
+  public Object getSingleton(String beanName) {
+    return null;
+  }
+
+  public void register(String name, BeanDefinition beanDefinition) {
+    beanDefinitions.put(name, beanDefinition);
   }
 
   private Object createInstance(BeanDefinition beanDefinition) throws Exception {
@@ -75,7 +108,7 @@ public class BeanFactoryImpl implements BeanFactory {
     if (constructorArgs != null && !constructorArgs.isEmpty()) {
       List<Object> objects = new ArrayList<>();
       for (ConstructorArg constructorArg : constructorArgs) {
-        objects.add(getInstance(constructorArg.getRef()));
+        objects.add(getBean(constructorArg.getRef()));
       }
       return newInstance(clazz, clazz.getConstructor(), objects.toArray());
     }
@@ -88,8 +121,8 @@ public class BeanFactoryImpl implements BeanFactory {
       return;
     }
     for (Field field : fields) {
-      if (beanNames.contains(field.getName())) {
-        Object fieldBean = getInstance(resolveFieldName(field));
+      if (beanDefinitions.containsKey(field.getName())) {
+        Object fieldBean = getBean(resolveFieldName(field));
         if (fieldBean != null) {
           field.setAccessible(true);
           field.set(bean, fieldBean);

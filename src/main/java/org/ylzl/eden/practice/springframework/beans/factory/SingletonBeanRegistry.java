@@ -15,11 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.bean.config;
-
-import lombok.Data;
-
-import java.util.List;
+package org.ylzl.eden.practice.springframework.beans.factory;
 
 /**
  * TODO
@@ -27,16 +23,11 @@ import java.util.List;
  * @author gyl
  * @since 1.0.0
  */
-@Data
-public class BeanDefinition {
+public interface SingletonBeanRegistry {
 
-	private String name;
+	void registerSingleton(String beanName, Object singletonObject);
 
-	private String className;
+	boolean containsSingleton(String beanName);
 
-	private String interfaceName;
-
-	private List<ConstructorArg> constructorArgs;
-
-	private List<PropertyArg> propertyArgs;
+	Object getSingleton(String beanName);
 }
