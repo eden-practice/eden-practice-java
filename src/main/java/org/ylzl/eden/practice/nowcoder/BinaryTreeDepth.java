@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.nowcoder;
  * 获取二叉树的深度
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  * @see <a
  *     href="https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&tqId=11191&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指
  *     Offer 原题</a>

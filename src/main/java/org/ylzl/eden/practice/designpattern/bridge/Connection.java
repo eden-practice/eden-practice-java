@@ -24,7 +24,7 @@ import lombok.Data;
  * 连接
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Builder
 @Data

@@ -25,8 +25,10 @@ import java.util.EmptyStackException;
  * <p>Stack 是线程安全类，继承 Vector，主要增加了 `push` 入栈和 `pop` 出栈的同步方法，遵循 LIFO（后进先出）原则。
  * 已被 {@link java.util.LinkedList} 代替入栈出栈。</p>
  *
+ * @see org.ylzl.eden.practice.collections.list.LinkedList
+ * @see org.ylzl.eden.practice.collections.queue.Deque
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Deprecated
 public class Stack<E> extends Vector<E> {

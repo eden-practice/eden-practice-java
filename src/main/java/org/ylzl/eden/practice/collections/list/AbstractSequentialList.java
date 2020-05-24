@@ -26,7 +26,7 @@ import java.util.NoSuchElementException;
  * 抽象的链表 List
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public abstract class AbstractSequentialList<E> extends AbstractList<E> {
 

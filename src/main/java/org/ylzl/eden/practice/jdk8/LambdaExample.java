@@ -21,6 +21,6 @@ package org.ylzl.eden.practice.jdk8;
  * 拉姆达表达式例子
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class LambdaExample {}

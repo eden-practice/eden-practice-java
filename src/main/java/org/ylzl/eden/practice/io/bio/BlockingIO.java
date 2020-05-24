@@ -27,7 +27,7 @@ import java.io.OutputStream;
  * 阻塞 IO
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class BlockingIO {
 

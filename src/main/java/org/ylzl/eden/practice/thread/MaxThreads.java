@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.thread;
  * 测试最大线程数
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class MaxThreads {
 

@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.designpattern.iterator;
  * 迭代器
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public interface Iterator<E> {
 

@@ -24,7 +24,7 @@ import org.ylzl.eden.practice.designpattern.proxy.BeanImpl;
  * 静态代理
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class StaticProxy implements Bean {
 

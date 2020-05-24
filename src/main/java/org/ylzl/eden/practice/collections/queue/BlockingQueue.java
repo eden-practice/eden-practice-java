@@ -15,13 +15,35 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.collections.map;
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.Collection;
+
+import java.util.concurrent.TimeUnit;
 
 /**
- * TODO
+ * 阻塞队列
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
-public class LinkedMap {
+public interface BlockingQueue<E> extends Queue<E> {
+
+  void put(E e) throws InterruptedException;
+
+  boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
+
+  E take() throws InterruptedException; // 检索并获取头部，等待元素返回
+
+  E poll(long timeout, TimeUnit unit) throws InterruptedException;
+
+  int remainingCapacity();
+
+  boolean remove(Object o);
+
+  public boolean contains(Object o);
+
+  int drainTo(Collection<? super E> c);
+
+  int drainTo(Collection<? super E> c, int maxElements);
 }

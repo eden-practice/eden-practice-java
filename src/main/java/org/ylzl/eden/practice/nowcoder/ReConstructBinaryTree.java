@@ -27,7 +27,7 @@ import java.util.Arrays;
  *     href="https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指
  *     Offer 原题</a>
  * @see Arrays#copyOfRange
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class ReConstructBinaryTree {
 

@@ -20,10 +20,10 @@ package org.ylzl.eden.practice.collections.map;
 import java.io.Serializable;
 
 /**
- * TODO
+ * 哈希表
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Deprecated
 public class Hashtable<K,V>

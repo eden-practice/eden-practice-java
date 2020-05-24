@@ -23,11 +23,9 @@ import org.springframework.beans.factory.support.AbstractBeanFactory;
  * TODO
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
 	implements AutowireCapableBeanFactory {
-
-
 
 }

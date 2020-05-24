@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.designpattern.proxy;
  * 真实处理的 Bean
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class BeanImpl implements Bean {
 

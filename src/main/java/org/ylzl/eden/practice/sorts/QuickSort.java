@@ -23,8 +23,9 @@ import java.util.Arrays;
  * 快速排序
  *
  * @author gyl
- * @see https://mengxiangge.work/2019/01/06/algorithmic/#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F
- * @since 1.0.0
+ * @see <a *
+ *     href="https://mengxiangge.work/2019/01/06/algorithmic/#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</a>
+ * @since 2.0.0
  */
 public class QuickSort {
 

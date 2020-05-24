@@ -27,8 +27,9 @@ import java.util.RandomAccess;
  * <p>Vector 按 2 倍扩容，ArrayList 是 1.5 倍</p>
  * <p>已被 {@link java.util.Collections#synchronizedList(java.util.List)} 代替</p>
  *
+ * @see org.ylzl.eden.practice.collections.list.ArrayList
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Deprecated
 public class Vector<E> extends AbstractList<E>

@@ -25,7 +25,7 @@ import java.util.RandomAccess;
  * 顺序表 List
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class ArrayList<E> extends AbstractList<E>
     implements List<E>, RandomAccess, Cloneable, Serializable {

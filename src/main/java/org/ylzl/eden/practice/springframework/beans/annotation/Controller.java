@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.springframework.beans.annotation;
  * TODO
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 
 import org.ylzl.eden.practice.springframework.core.annotation.AliasFor;

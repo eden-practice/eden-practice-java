@@ -29,7 +29,7 @@ import java.lang.reflect.Proxy;
  * JDK 动态代理
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class JdkDynamicProxy<T> implements InvocationHandler {
 

@@ -28,7 +28,7 @@ import java.util.stream.Stream;
  * 链表 List
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Cloneable, Serializable {
 

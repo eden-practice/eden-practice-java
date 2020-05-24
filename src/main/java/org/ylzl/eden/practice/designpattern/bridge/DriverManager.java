@@ -28,7 +28,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 驱动管理器
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class DriverManager {
 

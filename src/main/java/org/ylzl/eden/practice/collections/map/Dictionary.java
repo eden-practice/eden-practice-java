@@ -18,10 +18,10 @@
 package org.ylzl.eden.practice.collections.map;
 
 /**
- * TODO
+ * 抽象字典
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Deprecated
 public abstract class Dictionary<K,V> {
