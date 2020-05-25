@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.springframework.aop.annotation;
  * 自定义前置通知
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public @interface Before {
 }

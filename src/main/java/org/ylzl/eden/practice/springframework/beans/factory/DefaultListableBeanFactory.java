@@ -21,9 +21,9 @@ package org.ylzl.eden.practice.springframework.beans.factory;
  * TODO
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
-public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory {
+public abstract class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory {
 
 	@Override
 	public <T> T createBean(Class<T> beanClass) throws Exception {

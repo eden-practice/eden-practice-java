@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.collections;
  * Collection 接口
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public interface Collection<E> extends Iterable<E> {
 

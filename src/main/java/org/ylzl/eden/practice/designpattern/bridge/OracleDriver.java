@@ -23,7 +23,7 @@ import java.util.Properties;
  * Oracle 驱动
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class OracleDriver implements Driver {
 

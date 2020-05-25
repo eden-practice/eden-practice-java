@@ -25,7 +25,7 @@ import java.util.List;
  * 具体迭代实现
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class ConcreteIterable implements Iterable<Integer> {
 

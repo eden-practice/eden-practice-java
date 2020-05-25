@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.designpattern.builder;
  * 建造者模式测试
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class BuilderTest {
 

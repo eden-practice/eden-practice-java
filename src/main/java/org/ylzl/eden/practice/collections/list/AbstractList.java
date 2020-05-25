@@ -25,7 +25,7 @@ import org.ylzl.eden.practice.collections.Iterator;
  * 抽象 List
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E> {
 

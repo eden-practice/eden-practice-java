@@ -23,11 +23,15 @@ import java.util.Arrays;
  * 抽象 Collection
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public abstract class AbstractCollection<E> implements Collection<E> {
 
   private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
+
+  public abstract Iterator<E> iterator();
+
+  public abstract int size();
 
   @Override
   public boolean isEmpty() {
@@ -141,5 +145,25 @@ public abstract class AbstractCollection<E> implements Collection<E> {
       throw new OutOfMemoryError("Required array size too large");
     }
     return (minCapacity > MAX_ARRAY_SIZE) ? Integer.MAX_VALUE : MAX_ARRAY_SIZE;
+  }
+
+  @Override
+  public boolean containsAll(Collection<?> c) {
+    return true;
+  }
+
+  @Override
+  public boolean addAll(Collection<? extends E> c) {
+    return true;
+  }
+
+  @Override
+  public boolean removeAll(Collection<?> c) {
+    return true;
+  }
+
+  @Override
+  public boolean retainAll(Collection<?> c) {
+    return true;
   }
 }

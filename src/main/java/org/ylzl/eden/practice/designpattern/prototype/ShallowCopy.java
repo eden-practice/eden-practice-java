@@ -23,7 +23,7 @@ import lombok.Data;
  * 浅拷贝
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Data
 public class ShallowCopy implements Cloneable {

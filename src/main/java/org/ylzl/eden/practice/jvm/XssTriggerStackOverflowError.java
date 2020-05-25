@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.jvm;
  * 验证 Xss 参数对栈的深度的影响
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class XssTriggerStackOverflowError {
 

@@ -24,7 +24,7 @@ package org.ylzl.eden.practice.leetcode;
  *
  * @author gyl
  * @see <a href="https://leetcode-cn.com/problems/climbing-stairs/submissions">leetcode 原题</a>
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class ClimbStairs {
 

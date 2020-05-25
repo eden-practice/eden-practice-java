@@ -15,4 +15,5 @@
  * limitations under the License.
  */
 // Java 原子性操作包
+// 并发原子操作
 package org.ylzl.eden.practice.concurrent.atomic;

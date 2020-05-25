@@ -21,7 +21,7 @@ package org.ylzl.eden.practice.collections.map;
  * 散列接口
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public interface Map<K,V> {
 }

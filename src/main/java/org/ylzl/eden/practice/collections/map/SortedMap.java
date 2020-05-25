@@ -18,10 +18,10 @@
 package org.ylzl.eden.practice.collections.map;
 
 /**
- * TODO
+ * 顺序散列
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public abstract class SortedMap implements Map {
 }

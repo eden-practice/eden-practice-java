@@ -24,7 +24,7 @@ import lombok.ToString;
  * 电脑（产品）
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Data
 @ToString

@@ -27,7 +27,7 @@ package org.ylzl.eden.practice.nowcoder;
  * @see java.lang.StringBuffer#append(String)
  * @see java.lang.StringBuffer#charAt
  * @see java.lang.StringBuffer#setCharAt
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class ReplaceSpace {
 

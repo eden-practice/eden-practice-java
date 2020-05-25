@@ -23,7 +23,7 @@ import org.ylzl.eden.practice.collections.Iterator;
  * List 迭代器
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public interface ListIterator<E> extends Iterator<E> {
 

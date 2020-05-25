@@ -23,7 +23,7 @@ import java.util.Properties;
  * MySQL 驱动
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public class MySQLDriver implements Driver {
 

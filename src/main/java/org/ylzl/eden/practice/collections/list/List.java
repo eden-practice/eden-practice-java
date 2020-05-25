@@ -23,7 +23,7 @@ import org.ylzl.eden.practice.collections.Collection;
  * List 接口
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public interface List<E> extends Collection<E> {
 

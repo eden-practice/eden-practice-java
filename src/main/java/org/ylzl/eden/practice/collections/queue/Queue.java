@@ -23,7 +23,19 @@ import org.ylzl.eden.practice.collections.Collection;
  * 队列接口
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 public interface Queue<E> extends Collection<E> {
+
+	boolean add(E e); // 从队列尾部插入一个元素，如果插入超出队列的容量，抛出异常
+
+	boolean offer(E e); // 从队列尾部插入一个元素，如果插入超出队列的容量，不抛出异常
+
+	E remove(); // 移除队列第一个元素，如果队列为空，抛出异常
+
+	E poll(); // 拉取队列第一个元素，并从队列移除
+
+	E element(); // 检索队列第一个元素，在队列保留，如果队列为空，抛出异常
+
+	E peek(); // 检索队列第一个元素，在队列保留，如果队列为空，返回 Null
 }

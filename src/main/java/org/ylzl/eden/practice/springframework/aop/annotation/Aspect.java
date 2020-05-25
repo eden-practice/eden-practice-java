@@ -24,7 +24,7 @@ import java.lang.annotation.RetentionPolicy;
  * 自定义切面
  *
  * @author gyl
- * @since 1.0.0
+ * @since 2.0.0
  */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Aspect {
