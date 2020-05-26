@@ -15,4 +15,32 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.net.rpc.serializer;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+/**
+ * TODO
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class JsonSerializer implements Serializer {
+
+  private final ObjectMapper objectMapper;
+
+  public JsonSerializer() {
+    this.objectMapper = new ObjectMapper();
+  }
+
+  @Override
+  public <T> byte[] serialize(T obj) throws Exception {
+    return objectMapper.writeValueAsBytes(obj);
+  }
+
+  @Override
+  public <T> T deserialize(byte[] data, Class<T> clz) throws Exception {
+    return objectMapper.readValue(data, clz);
+  }
+}

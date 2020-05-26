@@ -15,4 +15,22 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.net.rpc;
+
+import lombok.Data;
+
+/**
+ * RPC 应答
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+@Data
+public class RpcResponse {
+
+  private String requestId; // 调用编号
+
+  private Throwable throwable; // 抛出的异常
+
+  private Object result; // 返回结果
+}

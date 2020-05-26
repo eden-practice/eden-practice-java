@@ -15,4 +15,34 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.net.rpc.netty;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToByteEncoder;
+import org.ylzl.eden.practice.net.rpc.serializer.Serializer;
+
+/**
+ * RPC 编码器
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class RpcEncoder extends MessageToByteEncoder {
+
+  private final Class<?> clazz;
+
+  private final Serializer serializer;
+
+  public RpcEncoder(Class<?> clazz, Serializer serializer) {
+    this.clazz = clazz;
+    this.serializer = serializer;
+  }
+
+  @Override
+  protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
+    byte[] bytes = serializer.serialize(msg);
+    out.writeInt(bytes.length);
+    out.writeBytes(bytes);
+  }
+}

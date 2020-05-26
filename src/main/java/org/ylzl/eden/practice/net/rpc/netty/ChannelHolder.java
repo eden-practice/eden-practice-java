@@ -15,4 +15,36 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.net.rpc.netty;
+
+import java.nio.channels.Channel;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * 通道容器
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class ChannelHolder {
+
+  private Map<String, Channel> channels = new ConcurrentHashMap<>();
+
+  public ChannelHolder put(String key, Channel channel) {
+    channels.put(key, channel);
+    return this;
+  }
+
+  public Channel get(String key) {
+    return channels.get(key);
+  }
+
+  public void remove(String key) {
+    this.channels.remove(key);
+  }
+
+  public int size() {
+    return channels.size();
+  }
+}

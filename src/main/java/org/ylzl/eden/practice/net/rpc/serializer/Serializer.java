@@ -15,4 +15,19 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.net.rpc.serializer;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+/**
+ * 序列化接口
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public interface Serializer {
+
+  <T> byte[] serialize(T obj) throws Exception;
+
+  <T> T deserialize(byte[] data, Class<T> clz)  throws Exception;
+}

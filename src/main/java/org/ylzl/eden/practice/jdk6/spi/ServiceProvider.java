@@ -15,4 +15,15 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.jdk6.spi;
+
+/**
+ * Service Provider Interface
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public interface ServiceProvider {
+
+	int invoke();
+}

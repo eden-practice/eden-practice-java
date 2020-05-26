@@ -15,4 +15,29 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.jdk6.spi;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.ServiceLoader;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+/**
+ * SPi 测试
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class ServiceProviderTest {
+
+  @Test
+  public void assertThatInvokeSuccess() {
+  	// ServiceLoader 默认加载 /META-INF/services/包+类名称，内容为加载的类路径
+    ServiceLoader<ServiceProvider> serviceProviders = ServiceLoader.load(ServiceProvider.class);
+    for (ServiceProvider serviceProvider : serviceProviders) {
+      System.out.println(serviceProvider.getClass());
+      assertNotEquals(serviceProvider.invoke(), 0);
+    }
+  }
+}

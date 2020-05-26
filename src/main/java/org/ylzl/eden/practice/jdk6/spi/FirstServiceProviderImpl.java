@@ -15,4 +15,19 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq;
+package org.ylzl.eden.practice.jdk6.spi;
+
+/**
+ * SPI 实现类
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class FirstServiceProviderImpl implements ServiceProvider {
+
+  @Override
+  public int invoke() {
+    System.out.println("SPI 实现类 1");
+    return 1;
+  }
+}

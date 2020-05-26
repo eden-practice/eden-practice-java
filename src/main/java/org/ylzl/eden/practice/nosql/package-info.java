@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
@@ -17,5 +15,4 @@
  * limitations under the License.
  */
 
->>>>>>> 8c915c119ca42d76bd9df7aa1359f2c86928eb23
 package org.ylzl.eden.practice.nosql;
