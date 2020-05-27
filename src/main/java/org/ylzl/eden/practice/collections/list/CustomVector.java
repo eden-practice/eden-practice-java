@@ -15,24 +15,33 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
-
-import lombok.Data;
+package org.ylzl.eden.practice.collections.list;
 
 import java.io.Serializable;
+import java.util.RandomAccess;
 
 /**
- * RPC 应答
+ * 向量
  *
+ * <p>Vector = ArrayList + synchronized </p>
+ * <p>Vector 按 2 倍扩容，ArrayList 是 1.5 倍</p>
+ * <p>已被 {@link java.util.Collections#synchronizedList(java.util.List)} 代替</p>
+ *
+ * @see CustomArrayList
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+@Deprecated
+public class CustomVector<E> extends CustomAbstractList<E>
+    implements CustomList<E>, RandomAccess, Cloneable, Serializable {
 
-  private String requestId; // 调用编号
+	@Override
+	public E get(int index) {
+		return null;
+	}
 
-  private Throwable throwable; // 抛出的异常
+	@Override
+	public void clear() {
 
-  private T result; // 返回结果
+	}
 }

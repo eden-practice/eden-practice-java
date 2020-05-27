@@ -15,24 +15,33 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.collections.list;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import org.ylzl.eden.practice.collections.CustomIterator;
 
 /**
- * RPC 应答
+ * List 迭代器
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public interface CustomListIterator<E> extends CustomIterator<E> {
 
-  private String requestId; // 调用编号
+  boolean hasNext();
 
-  private Throwable throwable; // 抛出的异常
+  E next();
 
-  private T result; // 返回结果
+  boolean hasPrevious();
+
+  E previous();
+
+  int nextIndex();
+
+  int previousIndex();
+
+  void remove();
+
+  void set(E e);
+
+  void add(E e);
 }

@@ -15,24 +15,18 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
-
-import lombok.Data;
+package org.ylzl.eden.practice.collections.map;
 
 import java.io.Serializable;
 
 /**
- * RPC 应答
+ * 哈希表
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
-
-  private String requestId; // 调用编号
-
-  private Throwable throwable; // 抛出的异常
-
-  private T result; // 返回结果
+@Deprecated
+public class CustomHashtable<K,V>
+	extends CustomDictionary<K,V>
+	implements CustomMap<K,V>, Cloneable, Serializable {
 }

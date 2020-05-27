@@ -15,24 +15,27 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.collections.queue;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import org.ylzl.eden.practice.collections.CustomCollection;
 
 /**
- * RPC 应答
+ * 队列接口
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public interface CustomQueue<E> extends CustomCollection<E> {
 
-  private String requestId; // 调用编号
+	boolean add(E e); // 从队列尾部插入一个元素，如果插入超出队列的容量，抛出异常
 
-  private Throwable throwable; // 抛出的异常
+	boolean offer(E e); // 从队列尾部插入一个元素，如果插入超出队列的容量，不抛出异常
 
-  private T result; // 返回结果
+	E remove(); // 移除队列第一个元素，如果队列为空，抛出异常
+
+	E poll(); // 拉取队列第一个元素，并从队列移除
+
+	E element(); // 检索队列第一个元素，在队列保留，如果队列为空，抛出异常
+
+	E peek(); // 检索队列第一个元素，在队列保留，如果队列为空，返回 Null
 }

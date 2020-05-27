@@ -19,6 +19,8 @@ package org.ylzl.eden.practice.net.rpc;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * RPC 请求
  *
@@ -26,7 +28,7 @@ import lombok.Data;
  * @since 2.0.0
  */
 @Data
-public class RpcRequest {
+public class RpcRequest implements Serializable {
 
   private String requestId; // 调用编号
 

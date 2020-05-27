@@ -15,24 +15,30 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.concurrent.locks;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
- * RPC 应答
+ * 锁同步约束
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public interface CustomCondition {
 
-  private String requestId; // 调用编号
+	void await() throws InterruptedException; // 使当前线程等待，直到收到 signal 唤醒
 
-  private Throwable throwable; // 抛出的异常
+	void awaitUninterruptibly();
 
-  private T result; // 返回结果
+	long awaitNanos(long nanosTimeout) throws InterruptedException;
+
+	boolean await(long time, TimeUnit unit) throws InterruptedException;
+
+	boolean awaitUntil(Date deadline) throws InterruptedException;
+
+	void signal(); // 随机唤醒一个等待线程
+
+	void signalAll();
 }

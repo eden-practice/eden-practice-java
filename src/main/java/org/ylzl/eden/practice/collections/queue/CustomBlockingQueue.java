@@ -15,24 +15,35 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.collections.queue;
 
-import lombok.Data;
+import org.ylzl.eden.practice.collections.CustomCollection;
 
-import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 /**
- * RPC 应答
+ * 阻塞队列
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public interface CustomBlockingQueue<E> extends CustomQueue<E> {
 
-  private String requestId; // 调用编号
+  void put(E e) throws InterruptedException;
 
-  private Throwable throwable; // 抛出的异常
+  boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
 
-  private T result; // 返回结果
+  E take() throws InterruptedException; // 检索并获取头部，等待元素返回
+
+  E poll(long timeout, TimeUnit unit) throws InterruptedException;
+
+  int remainingCapacity();
+
+  boolean remove(Object o);
+
+  public boolean contains(Object o);
+
+  int drainTo(CustomCollection<? super E> c);
+
+  int drainTo(CustomCollection<? super E> c, int maxElements);
 }

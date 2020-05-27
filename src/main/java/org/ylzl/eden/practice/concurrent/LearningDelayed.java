@@ -15,24 +15,41 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.concurrent;
 
-import lombok.Data;
+import lombok.ToString;
 
-import java.io.Serializable;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
 
 /**
- * RPC 应答
+ * 延迟接口例子
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+@ToString
+public class LearningDelayed implements Delayed {
 
-  private String requestId; // 调用编号
+  private final String orderId; // 订单 ID
 
-  private Throwable throwable; // 抛出的异常
+  private final long timestamp; // 创建时间戳
 
-  private T result; // 返回结果
+  private final long expire; // 过期时间戳
+
+  public LearningDelayed(String orderId, long expireSeconds) {
+    this.orderId = orderId;
+    this.timestamp = System.currentTimeMillis();
+    this.expire = this.timestamp + expireSeconds * 1000L;
+  }
+
+  @Override
+  public long getDelay(TimeUnit unit) {
+    return this.expire - System.currentTimeMillis();
+  }
+
+  @Override
+  public int compareTo(Delayed o) {
+    return (int) (this.getDelay(TimeUnit.MILLISECONDS) - o.getDelay(TimeUnit.MILLISECONDS));
+  }
 }

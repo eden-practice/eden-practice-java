@@ -15,24 +15,41 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
-
-import lombok.Data;
-
-import java.io.Serializable;
+package org.ylzl.eden.practice.collections;
 
 /**
- * RPC 应答
+ * Collection 接口
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public interface CustomCollection<E> extends CustomIterable<E> {
 
-  private String requestId; // 调用编号
+  int size(); // 返回元素大小
 
-  private Throwable throwable; // 抛出的异常
+  boolean isEmpty(); // 是否为空，等价于 size() == 0
 
-  private T result; // 返回结果
+  boolean contains(Object o); // 是否包含某个元素
+
+  boolean containsAll(CustomCollection<?> c);
+
+  Object[] toArray(); // 将集合转化为数组
+
+  <T> T[] toArray(T[] a);
+
+  boolean add(E e); // 添加元素
+
+  boolean addAll(CustomCollection<? extends E> c);
+
+  boolean remove(Object o); // 删除元素
+
+  boolean removeAll(CustomCollection<?> c);
+
+  boolean retainAll(CustomCollection<?> c); // 保留指定集合在当前集合存在的元素，就是取两个集合的交集
+
+  void clear(); // 清空所有元素
+
+  boolean equals(Object o);
+
+  int hashCode();
 }

@@ -15,24 +15,44 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.collections.queue;
 
-import lombok.Data;
+import org.ylzl.eden.practice.collections.CustomIterator;
 
 import java.io.Serializable;
 
 /**
- * RPC 应答
+ * 优先队列
+ *
+ * <p>使用完全二叉树表示，保证每次取出的元素都是队列中权值最小的</p>
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public class CustomPriorityQueue<E> extends CustomAbstractQueue<E> implements Serializable {
 
-  private String requestId; // 调用编号
+	@Override
+	public CustomIterator<E> iterator() {
+		return null;
+	}
 
-  private Throwable throwable; // 抛出的异常
+	@Override
+	public int size() {
+		return 0;
+	}
 
-  private T result; // 返回结果
+	@Override
+	public boolean offer(E e) {
+		return false;
+	}
+
+	@Override
+	public E poll() {
+		return null;
+	}
+
+	@Override
+	public E peek() {
+		return null;
+	}
 }

@@ -15,24 +15,34 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.net.rpc.netty;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToByteEncoder;
+import org.ylzl.eden.practice.net.rpc.serializer.Serializer;
 
 /**
- * RPC 应答
+ * 写入数据时将消息对象编码为字节
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public class RpcWriteEncoder extends MessageToByteEncoder {
 
-  private String requestId; // 调用编号
+  private final Class<?> clazz;
 
-  private Throwable throwable; // 抛出的异常
+  private final Serializer serializer;
 
-  private T result; // 返回结果
+  public RpcWriteEncoder(Class<?> clazz, Serializer serializer) {
+    this.clazz = clazz;
+    this.serializer = serializer;
+  }
+
+  @Override
+  protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
+    byte[] bytes = serializer.serialize(msg);
+    out.writeInt(bytes.length);
+    out.writeBytes(bytes);
+  }
 }

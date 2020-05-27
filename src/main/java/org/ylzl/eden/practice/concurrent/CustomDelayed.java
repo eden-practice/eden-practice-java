@@ -15,24 +15,17 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
+package org.ylzl.eden.practice.concurrent;
 
-import lombok.Data;
-
-import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 /**
- * RPC 应答
+ * 延迟接口
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public interface CustomDelayed extends Comparable<CustomDelayed> {
 
-  private String requestId; // 调用编号
-
-  private Throwable throwable; // 抛出的异常
-
-  private T result; // 返回结果
+	long getDelay(TimeUnit unit);
 }

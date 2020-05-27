@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,24 +15,12 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
-
-import lombok.Data;
-
-import java.io.Serializable;
+package org.ylzl.eden.practice.jdk8;
 
 /**
- * RPC 应答
+ * 拉姆达表达式例子
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
-
-  private String requestId; // 调用编号
-
-  private Throwable throwable; // 抛出的异常
-
-  private T result; // 返回结果
-}
+public class LearningLambda {}

@@ -15,33 +15,49 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc.serializer;
+package org.ylzl.eden.practice.collections.queue;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.ylzl.eden.practice.collections.AbstractCustomCollection;
+import org.ylzl.eden.practice.collections.CustomCollection;
+
+import java.util.NoSuchElementException;
 
 /**
- * JSON 序列化器
+ * 抽象队列
  *
  * @author gyl
  * @since 2.0.0
  */
-public class JsonSerializer implements Serializer {
+public abstract class CustomAbstractQueue<E> extends AbstractCustomCollection<E> implements CustomQueue<E> {
 
-  private final ObjectMapper objectMapper;
-
-  public JsonSerializer() {
-    this.objectMapper = new ObjectMapper();
-    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+  public boolean add(E e) {
+    if (offer(e)) {
+      return true;
+    }
+    throw new IllegalStateException("Queue full");
   }
 
-  @Override
-  public <T> byte[] serialize(T obj) throws Exception {
-    return objectMapper.writeValueAsBytes(obj);
+  public E remove() {
+    E x = poll();
+    if (x != null) {
+      return x;
+    }
+    throw new NoSuchElementException();
   }
 
-  @Override
-  public <T> T deserialize(byte[] data, Class<T> clz) throws Exception {
-    return objectMapper.readValue(data, clz);
+  public E element() {
+    E x = peek();
+    if (x != null) {
+      return x;
+    }
+    throw new NoSuchElementException();
+  }
+
+  public void clear() {
+    while (poll() != null) ;
+  }
+
+  public boolean addAll(CustomCollection<? extends E> c) {
+    return false;
   }
 }

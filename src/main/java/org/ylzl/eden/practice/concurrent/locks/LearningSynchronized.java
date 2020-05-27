@@ -15,24 +15,33 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc;
-
-import lombok.Data;
-
-import java.io.Serializable;
+package org.ylzl.eden.practice.concurrent.locks;
 
 /**
- * RPC 应答
+ * Synchronized 内置锁例子
  *
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class RpcResponse<T> implements Serializable {
+public class LearningSynchronized {
 
-  private String requestId; // 调用编号
+  private int value = 0;
 
-  private Throwable throwable; // 抛出的异常
+  private static int staticValue = 0;
 
-  private T result; // 返回结果
+  private Object[] lock = new Object[0];
+
+  public synchronized int incrementAndGetWithMethod() { // 同步方法，对象锁，锁住的是 SynchronizedExample 实例
+    return ++value;
+  }
+
+  public static synchronized int incrementAndGetWithStaticMethod() { // 同步静态方法，类锁，锁住的是 SynchronizedExample.class
+    return ++staticValue;
+  }
+
+  public int incrementAndGetWithBlock() {
+    synchronized (lock) { // 同步代码块，对象锁，锁住的对象是 SynchronizedExample.lock
+      return ++value;
+    }
+  }
 }
