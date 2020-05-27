@@ -17,9 +17,9 @@
 
 package org.ylzl.eden.practice.collections.list;
 
-import org.ylzl.eden.practice.collections.AbstractCollection;
-import org.ylzl.eden.practice.collections.Collection;
-import org.ylzl.eden.practice.collections.Iterator;
+import org.ylzl.eden.practice.collections.CustomAbstractCollection;
+import org.ylzl.eden.practice.collections.CustomCollection;
+import org.ylzl.eden.practice.collections.CustomIterator;
 
 /**
  * 抽象 List
@@ -27,12 +27,12 @@ import org.ylzl.eden.practice.collections.Iterator;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class AbstractList<E> extends AbstractCollection<E> implements List<E> {
+public abstract class CustomListAbstract<E> extends CustomAbstractCollection<E> implements CustomList<E> {
 
 	abstract public E get(int index);
 
 	@Override
-	public Iterator<E> iterator() {
+	public CustomIterator<E> iterator() {
 		return null;
 	}
 
@@ -67,37 +67,37 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
 	}
 
 	@Override
-	public ListIterator<E> listIterator() {
+	public CustomListIterator<E> listIterator() {
 		return null;
 	}
 
 	@Override
-	public ListIterator<E> listIterator(int index) {
+	public CustomListIterator<E> listIterator(int index) {
 		return null;
 	}
 
 	@Override
-	public List<E> subList(int fromIndex, int toIndex) {
+	public CustomList<E> subList(int fromIndex, int toIndex) {
 		return null;
 	}
 
 	@Override
-	public boolean containsAll(Collection<?> c) {
+	public boolean containsAll(CustomCollection<?> c) {
 		return false;
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends E> c) {
+	public boolean addAll(CustomCollection<? extends E> c) {
 		return false;
 	}
 
 	@Override
-	public boolean removeAll(Collection<?> c) {
+	public boolean removeAll(CustomCollection<?> c) {
 		return false;
 	}
 
 	@Override
-	public boolean retainAll(Collection<?> c) {
+	public boolean retainAll(CustomCollection<?> c) {
 		return false;
 	}
 }

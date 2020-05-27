@@ -25,7 +25,7 @@ import java.util.Arrays;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class AbstractCustomCollection<E> implements CustomCollection<E> {
+public abstract class CustomAbstractCollection<E> implements CustomCollection<E> {
 
   private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 

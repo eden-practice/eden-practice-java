@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @author gyl
  * @since 2.0.0
  */
-public class CustomLinkedList<E> extends CustomAbstractSequentialList<E> implements CustomList<E>, Cloneable, Serializable {
+public class CustomAbstractLinkedList<E> extends CustomSequentialListAbstract<E> implements CustomList<E>, Cloneable, Serializable {
 
 	transient int size = 0;
 

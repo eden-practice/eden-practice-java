@@ -28,7 +28,7 @@ import java.util.NoSuchElementException;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class CustomAbstractSequentialList<E> extends CustomAbstractList<E> {
+public abstract class CustomSequentialListAbstract<E> extends CustomListAbstract<E> {
 
 	public E get(int index) {
 		try {

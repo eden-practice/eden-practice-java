@@ -33,11 +33,11 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
  * @author gyl
  * @since 2.0.0
  */
-public class CustomDelayQueue<E extends CustomDelayed> extends CustomAbstractQueue<E> implements CustomBlockingQueue<E> {
+public class CustomAbstractDelayQueue<E extends CustomDelayed> extends CustomQueueAbstract<E> implements CustomBlockingQueue<E> {
 
   private final transient ReentrantLock lock = new ReentrantLock();
 
-  private final CustomPriorityQueue<E> q = new CustomPriorityQueue<E>();
+  private final CustomAbstractPriorityQueue<E> q = new CustomAbstractPriorityQueue<E>();
 
   private Thread leader = null;
 

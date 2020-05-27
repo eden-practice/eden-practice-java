@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.collections.queue;
 
-import org.ylzl.eden.practice.collections.AbstractCustomCollection;
+import org.ylzl.eden.practice.collections.CustomAbstractCollection;
 import org.ylzl.eden.practice.collections.CustomCollection;
 
 import java.util.NoSuchElementException;
@@ -28,7 +28,7 @@ import java.util.NoSuchElementException;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class CustomAbstractQueue<E> extends AbstractCustomCollection<E> implements CustomQueue<E> {
+public abstract class CustomQueueAbstract<E> extends CustomAbstractCollection<E> implements CustomQueue<E> {
 
   public boolean add(E e) {
     if (offer(e)) {

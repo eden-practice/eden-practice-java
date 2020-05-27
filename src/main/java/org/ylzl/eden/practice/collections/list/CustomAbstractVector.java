@@ -27,12 +27,12 @@ import java.util.RandomAccess;
  * <p>Vector 按 2 倍扩容，ArrayList 是 1.5 倍</p>
  * <p>已被 {@link java.util.Collections#synchronizedList(java.util.List)} 代替</p>
  *
- * @see CustomArrayList
+ * @see CustomAbstractArrayList
  * @author gyl
  * @since 2.0.0
  */
 @Deprecated
-public class CustomVector<E> extends CustomAbstractList<E>
+public class CustomAbstractVector<E> extends CustomListAbstract<E>
     implements CustomList<E>, RandomAccess, Cloneable, Serializable {
 
 	@Override

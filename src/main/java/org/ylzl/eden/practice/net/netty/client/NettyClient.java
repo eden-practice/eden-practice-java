@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc.netty.client;
+package org.ylzl.eden.practice.net.netty.client;
 
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.ListenableFuture;

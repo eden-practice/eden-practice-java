@@ -27,7 +27,7 @@ import java.util.RandomAccess;
  * @author gyl
  * @since 2.0.0
  */
-public class CustomArrayList<E> extends CustomAbstractList<E>
+public class CustomAbstractArrayList<E> extends CustomListAbstract<E>
     implements CustomList<E>, RandomAccess, Cloneable, Serializable {
 
   private static final int DEFAULT_CAPACITY = 10; // 默认初始化容量为 10

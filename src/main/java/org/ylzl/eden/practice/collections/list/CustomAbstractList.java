@@ -17,9 +17,11 @@
 
 package org.ylzl.eden.practice.collections.list;
 
-import org.ylzl.eden.practice.collections.AbstractCustomCollection;
+import org.ylzl.eden.practice.collections.CustomAbstractCollection;
 import org.ylzl.eden.practice.collections.CustomCollection;
 import org.ylzl.eden.practice.collections.CustomIterator;
+
+import java.util.Collection;
 
 /**
  * 抽象 List
@@ -27,7 +29,7 @@ import org.ylzl.eden.practice.collections.CustomIterator;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class CustomAbstractList<E> extends AbstractCustomCollection<E> implements CustomList<E> {
+public abstract class CustomAbstractList<E> extends CustomAbstractCollection<E> implements CustomList<E> {
 
 	abstract public E get(int index);
 

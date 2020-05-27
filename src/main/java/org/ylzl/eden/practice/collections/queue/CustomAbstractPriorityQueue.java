@@ -29,7 +29,7 @@ import java.io.Serializable;
  * @author gyl
  * @since 2.0.0
  */
-public class CustomPriorityQueue<E> extends CustomAbstractQueue<E> implements Serializable {
+public class CustomAbstractPriorityQueue<E> extends CustomQueueAbstract<E> implements Serializable {
 
 	@Override
 	public CustomIterator<E> iterator() {

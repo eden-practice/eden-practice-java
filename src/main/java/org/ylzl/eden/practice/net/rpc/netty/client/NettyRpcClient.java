@@ -5,11 +5,12 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import lombok.SneakyThrows;
+import org.ylzl.eden.practice.net.netty.client.NettyClient;
 import org.ylzl.eden.practice.net.rpc.RpcClient;
 import org.ylzl.eden.practice.net.rpc.RpcRequest;
 import org.ylzl.eden.practice.net.rpc.RpcResponse;
-import org.ylzl.eden.practice.net.rpc.netty.RpcReadDecoder;
-import org.ylzl.eden.practice.net.rpc.netty.RpcWriteEncoder;
+import org.ylzl.eden.practice.net.rpc.netty.codec.RpcReadDecoder;
+import org.ylzl.eden.practice.net.rpc.netty.codec.RpcWriteEncoder;
 import org.ylzl.eden.practice.net.rpc.serializer.Serializer;
 
 /**

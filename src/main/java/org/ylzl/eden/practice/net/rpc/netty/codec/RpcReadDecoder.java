@@ -15,34 +15,48 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc.netty;
+package org.ylzl.eden.practice.net.rpc.netty.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToByteEncoder;
+import io.netty.handler.codec.ByteToMessageDecoder;
 import org.ylzl.eden.practice.net.rpc.serializer.Serializer;
 
+import java.util.List;
+
 /**
- * 写入数据时将消息对象编码为字节
+ * 读取数据时将字节解码为消息对象
  *
  * @author gyl
  * @since 2.0.0
  */
-public class RpcWriteEncoder extends MessageToByteEncoder {
+public class RpcReadDecoder extends ByteToMessageDecoder {
 
   private final Class<?> clazz;
 
   private final Serializer serializer;
 
-  public RpcWriteEncoder(Class<?> clazz, Serializer serializer) {
+  public RpcReadDecoder(Class<?> clazz, Serializer serializer) {
     this.clazz = clazz;
     this.serializer = serializer;
   }
 
   @Override
-  protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
-    byte[] bytes = serializer.serialize(msg);
-    out.writeInt(bytes.length);
-    out.writeBytes(bytes);
+  protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+    if (in.readableBytes() < 4) {
+      return;
+    }
+
+    in.markReaderIndex();
+    int dataLength = in.readInt();
+    if (in.readableBytes() < dataLength) {
+      in.resetReaderIndex();
+      return;
+    }
+    byte[] data = new byte[dataLength];
+    in.readBytes(data);
+
+    Object obj = serializer.deserialize(data, clazz);
+    out.add(obj);
   }
 }
