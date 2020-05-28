@@ -5,7 +5,7 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import lombok.SneakyThrows;
-import org.ylzl.eden.practice.net.netty.client.NettyClient;
+import org.ylzl.eden.practice.net.netty.bootstrap.NettyClient;
 import org.ylzl.eden.practice.net.rpc.RpcClient;
 import org.ylzl.eden.practice.net.rpc.RpcRequest;
 import org.ylzl.eden.practice.net.rpc.RpcResponse;

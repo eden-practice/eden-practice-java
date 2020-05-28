@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.netty.server;
+package org.ylzl.eden.practice.net.netty.bootstrap;
 
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -26,7 +26,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.Getter;
-import org.ylzl.eden.practice.net.rpc.netty.ChannelOptions;
+import org.ylzl.eden.practice.net.netty.channel.ChannelOptions;
 
 import java.net.InetSocketAddress;
 import java.util.List;

@@ -3,12 +3,12 @@ package org.ylzl.eden.practice.concurrent.future;
 import org.ylzl.eden.practice.concurrent.CustomFuture;
 
 /**
- * TODO
+ * 异步调用
  *
  * @author gyl
  * @since 2.0.0
  */
-public class AsyncData implements CustomFuture<String> {
+public class AsyncInvoker implements CustomFuture<String> {
 
   private volatile boolean flag = true;
 

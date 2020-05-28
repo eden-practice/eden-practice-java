@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.net.rpc.netty;
+package org.ylzl.eden.practice.net.netty.channel;
 
 import com.google.common.base.Supplier;
 import com.google.common.collect.Maps;

@@ -1,15 +1,14 @@
 package org.ylzl.eden.practice.concurrent.future;
 
 import lombok.SneakyThrows;
-import org.ylzl.eden.practice.concurrent.CustomFuture;
 
 /**
- * TODO
+ * 同步调用
  *
  * @author gyl
  * @since 2.0.0
  */
-public class SyncData {
+public class SyncInvoker {
 
   @SneakyThrows
   public String remoteInvokeSlowly() {

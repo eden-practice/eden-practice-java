@@ -13,13 +13,13 @@ public class CustomFutureTest {
 
   @Test
   public void assertThatAsyncResult() throws InterruptedException {
-    final CustomFuture asyncData = new AsyncData();
+    final CustomFuture asyncData = new AsyncInvoker();
     new Thread(
             new Runnable() {
               @Override
               public void run() {
-                final SyncData syncData = new SyncData();
-                asyncData.set(syncData.remoteInvokeSlowly());
+                final SyncInvoker syncInvoker = new SyncInvoker();
+                asyncData.set(syncInvoker.remoteInvokeSlowly());
               }
             },
             "test")
