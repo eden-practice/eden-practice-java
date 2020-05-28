@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
+ *  (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -18,23 +18,10 @@
 package org.ylzl.eden.practice.jdk8;
 
 /**
- * 学习 Java8 Lambda
+ * 学习 Java8 Optional
  *
  * @author gyl
  * @since 2.0.0
  */
-public class LearningLambda {
-
-	public static void lambdaFunctional() {
-    new Thread(
-            () -> {
-							System.out.println("函数式接口测试");
-            },
-            "test")
-        .start();
-	}
-
-  public static void main(String[] args) {
-		LearningLambda.lambdaFunctional();
-  }
+public class LearningOptional {
 }
