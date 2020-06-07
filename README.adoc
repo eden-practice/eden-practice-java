@@ -25,6 +25,9 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.io
 | Java I/O
 
+| org.ylzl.eden.practice.jdbc
+| JDBC 驱动
+
 | org.ylzl.eden.practice.jdk6
 | Java 6 Deprecated
 
@@ -43,11 +46,26 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.leetcode
 | Leetcode 题库
 
+| org.ylzl.eden.practice.mq
+| Java 消息队列
+
+| org.ylzl.eden.practice.net
+| Java 网络编程
+
+| org.ylzl.eden.practice.nosql
+| NoSQL 数据库
+
+| org.ylzl.eden.practice.nowcoder
+| 牛客网题库
+
 | org.ylzl.eden.practice.searches
 | Java 查找
 
 | org.ylzl.eden.practice.sorts
 | Java 排序
+
+| org.ylzl.eden.practice.springframework
+| Spring 框架
 
 | org.ylzl.eden.practice.thread
 | Java 多线程
