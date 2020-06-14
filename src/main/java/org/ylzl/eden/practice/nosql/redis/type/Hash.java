@@ -28,7 +28,7 @@ import org.ylzl.eden.practice.nosql.redis.datastructures.ZipList;
  */
 public class Hash {
 
-	private Hashtable hashtable; // 三层结构
+	private Hashtable hashtable; // 哈希表
 
 	private ZipList zipList; // 哈希碰撞时使用
 }

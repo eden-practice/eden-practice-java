@@ -15,19 +15,44 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.Iterator;
+
+import java.io.Serializable;
 
 /**
- * Redis 整数集合
+ * 优先队列
+ *
+ * <p>使用完全二叉树表示，保证每次取出的元素都是队列中权值最小的</p>
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public class AbstractPriorityQueue<E> extends QueueAbstract<E> implements Serializable {
 
-	private int encoding;
+	@Override
+	public Iterator<E> iterator() {
+		return null;
+	}
 
-	private int length; // 数组元素个数
+	@Override
+	public int size() {
+		return 0;
+	}
 
-	private int[] contents; // 整数数组，从小到大排序
+	@Override
+	public boolean offer(E e) {
+		return false;
+	}
+
+	@Override
+	public E poll() {
+		return null;
+	}
+
+	@Override
+	public E peek() {
+		return null;
+	}
 }

@@ -18,7 +18,7 @@
 package org.ylzl.eden.practice.nosql.redis.datastructures;
 
 /**
- * 压缩列表是 Redis 的列表键和哈希键的实现之一
+ * Redis 压缩列表
  *
  * @author gyl
  * @since 2.0.0

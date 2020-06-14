@@ -1,6 +1,6 @@
 package org.ylzl.eden.practice.concurrent.future;
 
-import org.ylzl.eden.practice.concurrent.CustomFuture;
+import org.ylzl.eden.practice.concurrent.Future;
 
 /**
  * 异步调用
@@ -8,7 +8,7 @@ import org.ylzl.eden.practice.concurrent.CustomFuture;
  * @author gyl
  * @since 2.0.0
  */
-public class AsyncInvoker implements CustomFuture<String> {
+public class AsyncInvoker implements Future<String> {
 
   private volatile boolean flag = true;
 

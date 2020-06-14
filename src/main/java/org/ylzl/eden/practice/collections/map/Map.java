@@ -15,19 +15,13 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.map;
 
 /**
- * Redis 整数集合
+ * 散列接口
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
-
-	private int encoding;
-
-	private int length; // 数组元素个数
-
-	private int[] contents; // 整数数组，从小到大排序
+public interface Map<K,V> {
 }

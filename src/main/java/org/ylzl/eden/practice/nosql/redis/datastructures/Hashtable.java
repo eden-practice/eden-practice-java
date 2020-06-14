@@ -25,25 +25,25 @@ package org.ylzl.eden.practice.nosql.redis.datastructures;
  */
 public class Hashtable {
 
-	class Dict {
+	static class Dict {
 
 		private DictType type;
 
-		// 一般只存 2 个哈希表，rehash 时使用，当 DictEntry 数组元素过大时，会影响插入性能，这个时候可以适当增加
+		// 一般只存 2 个哈希表，rehash 时使用
 		private DictHt[] rehashDictHt = new DictHt[2];
 
-		private long rehashidx; // 保存 rehash 后指向哈希表数组的下标
+		private long rehashIdx; // 保存 rehash 后指向哈希表数组的下标
 
 		private int iterators;
 	}
 
-	class DictHt {
+	static class DictHt {
 
 		private DictEntry[] dictEntries;
 
 		private long size;
 
-		private long sizemask;
+		private long sizeMask;
 
 		private long used;
 	}

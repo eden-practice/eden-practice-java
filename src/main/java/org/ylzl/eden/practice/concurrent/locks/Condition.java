@@ -15,19 +15,30 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.concurrent.locks;
+
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
- * Redis 整数集合
+ * 锁同步约束
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface Condition {
 
-	private int encoding;
+	void await() throws InterruptedException; // 使当前线程等待，直到收到 signal 唤醒
 
-	private int length; // 数组元素个数
+	void awaitUninterruptibly();
 
-	private int[] contents; // 整数数组，从小到大排序
+	long awaitNanos(long nanosTimeout) throws InterruptedException;
+
+	boolean await(long time, TimeUnit unit) throws InterruptedException;
+
+	boolean awaitUntil(Date deadline) throws InterruptedException;
+
+	void signal(); // 随机唤醒一个等待线程
+
+	void signalAll();
 }

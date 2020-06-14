@@ -15,19 +15,33 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.list;
+
+import org.ylzl.eden.practice.collections.Collection;
 
 /**
- * Redis 整数集合
+ * List 接口
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface List<E> extends Collection<E> {
 
-	private int encoding;
+	void add(int index, E element);
 
-	private int length; // 数组元素个数
+	E get(int index);
 
-	private int[] contents; // 整数数组，从小到大排序
+	E set(int index, E element);
+
+	E remove(int index);
+
+	int indexOf(Object o);
+
+	int lastIndexOf(Object o);
+
+	ListIterator<E> listIterator();
+
+	ListIterator<E> listIterator(int index);
+
+	List<E> subList(int fromIndex, int toIndex);
 }

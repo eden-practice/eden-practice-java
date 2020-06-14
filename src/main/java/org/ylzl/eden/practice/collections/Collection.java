@@ -15,19 +15,41 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections;
 
 /**
- * Redis 整数集合
+ * Collection 接口
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface Collection<E> extends Iterable<E> {
 
-	private int encoding;
+  int size(); // 返回元素大小
 
-	private int length; // 数组元素个数
+  boolean isEmpty(); // 是否为空，等价于 size() == 0
 
-	private int[] contents; // 整数数组，从小到大排序
+  boolean contains(Object o); // 是否包含某个元素
+
+  boolean containsAll(Collection<?> c);
+
+  Object[] toArray(); // 将集合转化为数组
+
+  <T> T[] toArray(T[] a);
+
+  boolean add(E e); // 添加元素
+
+  boolean addAll(Collection<? extends E> c);
+
+  boolean remove(Object o); // 删除元素
+
+  boolean removeAll(Collection<?> c);
+
+  boolean retainAll(Collection<?> c); // 保留指定集合在当前集合存在的元素，就是取两个集合的交集
+
+  void clear(); // 清空所有元素
+
+  boolean equals(Object o);
+
+  int hashCode();
 }

@@ -15,19 +15,18 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.map;
+
+import java.io.Serializable;
 
 /**
- * Redis 整数集合
+ * 哈希表
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
-
-	private int encoding;
-
-	private int length; // 数组元素个数
-
-	private int[] contents; // 整数数组，从小到大排序
+@Deprecated
+public class Hashtable<K,V>
+	extends Dictionary<K,V>
+	implements Map<K,V>, Cloneable, Serializable {
 }

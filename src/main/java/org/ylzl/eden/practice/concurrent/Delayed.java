@@ -15,19 +15,17 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.concurrent;
+
+import java.util.concurrent.TimeUnit;
 
 /**
- * Redis 整数集合
+ * 延迟接口
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface Delayed extends Comparable<Delayed> {
 
-	private int encoding;
-
-	private int length; // 数组元素个数
-
-	private int[] contents; // 整数数组，从小到大排序
+	long getDelay(TimeUnit unit);
 }

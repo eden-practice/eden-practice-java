@@ -15,19 +15,33 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.list;
+
+import java.io.Serializable;
+import java.util.RandomAccess;
 
 /**
- * Redis 整数集合
+ * 向量
  *
+ * <p>Vector = ArrayList + synchronized </p>
+ * <p>Vector 按 2 倍扩容，ArrayList 是 1.5 倍</p>
+ * <p>已被 {@link java.util.Collections#synchronizedList(java.util.List)} 代替</p>
+ *
+ * @see AbstractArrayList
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+@Deprecated
+public class AbstractVector<E> extends ListAbstract<E>
+    implements List<E>, RandomAccess, Cloneable, Serializable {
 
-	private int encoding;
+	@Override
+	public E get(int index) {
+		return null;
+	}
 
-	private int length; // 数组元素个数
+	@Override
+	public void clear() {
 
-	private int[] contents; // 整数数组，从小到大排序
+	}
 }

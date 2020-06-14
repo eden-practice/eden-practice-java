@@ -15,19 +15,15 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections;
 
 /**
- * Redis 整数集合
+ * 迭代接口
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface Iterable<T> {
 
-	private int encoding;
-
-	private int length; // 数组元素个数
-
-	private int[] contents; // 整数数组，从小到大排序
+	Iterator<T> iterator();
 }

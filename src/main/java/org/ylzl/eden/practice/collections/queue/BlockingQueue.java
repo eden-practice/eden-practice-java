@@ -15,19 +15,35 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.Collection;
+
+import java.util.concurrent.TimeUnit;
 
 /**
- * Redis 整数集合
+ * 阻塞队列
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface BlockingQueue<E> extends Queue<E> {
 
-	private int encoding;
+  void put(E e) throws InterruptedException;
 
-	private int length; // 数组元素个数
+  boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
 
-	private int[] contents; // 整数数组，从小到大排序
+  E take() throws InterruptedException; // 检索并获取头部，等待元素返回
+
+  E poll(long timeout, TimeUnit unit) throws InterruptedException;
+
+  int remainingCapacity();
+
+  boolean remove(Object o);
+
+  public boolean contains(Object o);
+
+  int drainTo(Collection<? super E> c);
+
+  int drainTo(Collection<? super E> c, int maxElements);
 }

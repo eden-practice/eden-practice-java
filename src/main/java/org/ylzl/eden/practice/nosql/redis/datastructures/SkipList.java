@@ -17,11 +17,42 @@
 
 package org.ylzl.eden.practice.nosql.redis.datastructures;
 
+import lombok.Data;
+
 /**
- * TODO
+ * Redis 跳跃表
  *
  * @author gyl
  * @since 2.0.0
  */
+@Data
 public class SkipList {
+
+	private SkipListNode head; // 头部节点
+
+	private SkipListNode tail; // 尾部节点
+
+	private Long length;  // 元素的个数
+
+	private int level; // 最大层级
+
+	@Data
+  static class SkipListNode {
+
+    private SDS ele; // 数据域
+
+    private double score; // 分值
+
+    private SkipListNode backward; // 前一个节点
+
+    private SkipListLevel[] levels; // 最大值为 32，由 ZSKIPLIST_MAXLEVEL 定义
+
+		@Data
+		static class SkipListLevel {
+
+      private SkipListNode forward; // 下一个节点
+
+      private long span; // 距离下一个节点的跨度
+    }
+  }
 }

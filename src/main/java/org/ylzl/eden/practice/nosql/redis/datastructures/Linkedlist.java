@@ -18,10 +18,28 @@
 package org.ylzl.eden.practice.nosql.redis.datastructures;
 
 /**
- * TODO
+ * Redis 链表
  *
  * @author gyl
  * @since 2.0.0
  */
 public class Linkedlist {
+
+	static class List {
+
+		private ListNode head;
+
+		private ListNode tail;
+
+		private long nodeSize; // 节点数的长度
+	}
+
+	static class ListNode {
+
+		private ListNode prev;
+
+		private ListNode next;
+
+		private Object value;
+	}
 }

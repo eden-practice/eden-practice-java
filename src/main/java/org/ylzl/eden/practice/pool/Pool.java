@@ -15,19 +15,17 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.pool;
 
 /**
- * Redis 整数集合
+ * TODO
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface Pool<T> {
 
-	private int encoding;
+	T borrowObject();
 
-	private int length; // 数组元素个数
-
-	private int[] contents; // 整数数组，从小到大排序
+	void returnObject(T object);
 }

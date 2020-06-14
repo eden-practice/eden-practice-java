@@ -15,19 +15,49 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.AbstractCollection;
+import org.ylzl.eden.practice.collections.Collection;
+
+import java.util.NoSuchElementException;
 
 /**
- * Redis 整数集合
+ * 抽象队列
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public abstract class QueueAbstract<E> extends AbstractCollection<E> implements Queue<E> {
 
-	private int encoding;
+  public boolean add(E e) {
+    if (offer(e)) {
+      return true;
+    }
+    throw new IllegalStateException("Queue full");
+  }
 
-	private int length; // 数组元素个数
+  public E remove() {
+    E x = poll();
+    if (x != null) {
+      return x;
+    }
+    throw new NoSuchElementException();
+  }
 
-	private int[] contents; // 整数数组，从小到大排序
+  public E element() {
+    E x = peek();
+    if (x != null) {
+      return x;
+    }
+    throw new NoSuchElementException();
+  }
+
+  public void clear() {
+    while (poll() != null) ;
+  }
+
+  public boolean addAll(Collection<? extends E> c) {
+    return false;
+  }
 }

@@ -15,19 +15,27 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.Collection;
 
 /**
- * Redis 整数集合
+ * 队列接口
  *
  * @author gyl
  * @since 2.0.0
  */
-public class IntSet {
+public interface Queue<E> extends Collection<E> {
 
-	private int encoding;
+	boolean add(E e); // 从队列尾部插入一个元素，如果插入超出队列的容量，抛出异常
 
-	private int length; // 数组元素个数
+	boolean offer(E e); // 从队列尾部插入一个元素，如果插入超出队列的容量，不抛出异常
 
-	private int[] contents; // 整数数组，从小到大排序
+	E remove(); // 移除队列第一个元素，如果队列为空，抛出异常
+
+	E poll(); // 拉取队列第一个元素，并从队列移除
+
+	E element(); // 检索队列第一个元素，在队列保留，如果队列为空，抛出异常
+
+	E peek(); // 检索队列第一个元素，在队列保留，如果队列为空，返回 Null
 }

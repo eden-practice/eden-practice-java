@@ -15,33 +15,75 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nosql.redis.datastructures;
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.Iterator;
 
 /**
- * Redis 快速列表
+ * 反队列（栈）
  *
  * @author gyl
  * @since 2.0.0
  */
-public class QuickList {
+public interface Deque<E> extends Queue<E> {
 
-	private QuickListNode head;
+	void addFirst(E e);
 
-	private QuickListNode tail;
+	void addLast(E e);
 
-	private long entrySize;
+	boolean offerFirst(E e);
 
-	private long nodeSize;
+	boolean offerLast(E e);
 
-	static class QuickListNode {
+	E removeFirst();
 
-		private QuickListNode prev;
+	E removeLast();
 
-		private QuickListNode next;
-	}
+	E pollFirst();
 
-	static class QuickListEntry {
+	E pollLast();
 
-		private QuickListNode node;
-	}
+	E getFirst();
+
+	E getLast();
+
+	E peekFirst();
+
+	E peekLast();
+
+	boolean removeFirstOccurrence(Object o);
+
+	boolean removeLastOccurrence(Object o);
+
+	// 面向 Queue 的接口方法
+
+	boolean add(E e);
+
+	boolean offer(E e);
+
+	E remove();
+
+	E poll();
+
+	E element();
+
+	E peek();
+
+	// 面向 Stack 的接口方法
+
+	void push(E e);
+
+	E pop();
+
+	// 面向 Collection 的接口方法
+
+	boolean remove(Object o);
+
+	boolean contains(Object o);
+
+	public int size();
+
+	Iterator<E> iterator();
+
+	Iterator<E> descendingIterator();
 }
