@@ -20,7 +20,7 @@ package org.ylzl.eden.practice.nowcoder;
 import java.util.ArrayList;
 
 /**
- * 从尾到头打印链表
+ * 从尾到头打印链表（递归）
  *
  * @author gyl
  * @see <a
