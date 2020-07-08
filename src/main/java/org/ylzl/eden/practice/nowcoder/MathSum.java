@@ -11,7 +11,7 @@ package org.ylzl.eden.practice.nowcoder;
  *     href="https://www.nowcoder.com/practice/7a0da8fc483247ff8800059e12d7caf1?tpId=13&tqId=11200&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指
  *     Offer 原题</a>
  */
-public class ShortSum {
+public class MathSum {
 
   int[] mask = {0x00000000, 0xFFFFFFFF};
 

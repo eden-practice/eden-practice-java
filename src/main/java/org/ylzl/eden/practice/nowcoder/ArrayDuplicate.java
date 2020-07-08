@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -18,7 +18,7 @@
 package org.ylzl.eden.practice.nowcoder;
 
 /**
- * 二维数组中的查找
+ * 查找数组中重复的任意一个数字
  *
  * @author gyl
  * @see <a
@@ -26,25 +26,28 @@ package org.ylzl.eden.practice.nowcoder;
  *     Offer 原题</a>
  * @since 2.0.0
  */
-public class FindInMatrixArray {
+public class ArrayDuplicate {
 
-  public boolean find(int target, int[][] array) {
-    if (array == null || array.length == 0 || array[0].length == 0) {
+  public boolean duplicate(int numbers[], int length, int[] duplication) {
+    if (numbers == null || numbers.length == 0 || length <= 0) {
       return false;
     }
-    int rows = array.length;
-    int cols = array[0].length;
-    int rowIndex = 0;
-    int colIndex = cols - 1; // 从左上角开始遍历
-    while (rowIndex <= rows - 1 && colIndex >= 0) {
-      if (array[rowIndex][colIndex] == target) {
-        return true;
-      } else if (array[rowIndex][colIndex] < target) {
-        rowIndex++;
-      } else {
-        colIndex--;
+    for (int i = 0; i < length; i++) {
+      // eg：{2, 3, 1, 0, 2, 5}
+      while (numbers[i] != i) {
+        if (numbers[i] == numbers[numbers[i]]) { // 在一个长度为 n 的数组里的所有数字都在 0 到 n-1 的范围内，不会越界
+          duplication[0] = numbers[i];
+          return true;
+        }
+        swap(numbers, i, numbers[i]);
       }
     }
     return false;
+  }
+
+  private void swap(int numbers[], int i, int j) {
+    int temp = numbers[i];
+    numbers[i] = numbers[j];
+    numbers[j] = temp;
   }
 }

@@ -12,7 +12,7 @@ import java.util.Stack;
  *     Offer 原题</a>
  * @see Stack#pop()
  */
-public class TwoStackImplQueue {
+public class QueueBuilderByTwoStack {
 
 	private Stack<Integer> stack1 = new Stack<Integer>();
 

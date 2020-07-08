@@ -29,7 +29,7 @@ import java.util.Arrays;
  * @see Arrays#copyOfRange
  * @since 2.0.0
  */
-public class ReConstructBinaryTree {
+public class BinaryTreeReConstruct {
 
   public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
     return reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);

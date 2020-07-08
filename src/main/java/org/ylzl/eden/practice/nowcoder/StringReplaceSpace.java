@@ -29,7 +29,7 @@ package org.ylzl.eden.practice.nowcoder;
  * @see java.lang.StringBuffer#setCharAt
  * @since 2.0.0
  */
-public class ReplaceSpace {
+public class StringReplaceSpace {
 
   public String replaceSpace(StringBuffer str) {
     //		return str.toString().replaceAll(" ", "%20");

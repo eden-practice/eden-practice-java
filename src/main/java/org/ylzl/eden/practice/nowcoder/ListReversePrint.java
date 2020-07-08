@@ -28,7 +28,7 @@ import java.util.ArrayList;
  *     Offer 原题</a>
  * @since 2.0.0
  */
-public class PrintListFromTailToHead {
+public class ListReversePrint {
 
   public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
     ArrayList<Integer> arrayList = new ArrayList<>();

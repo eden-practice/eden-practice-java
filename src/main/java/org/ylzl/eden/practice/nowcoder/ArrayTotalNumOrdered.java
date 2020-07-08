@@ -9,7 +9,7 @@ package org.ylzl.eden.practice.nowcoder;
  *     href="https://www.nowcoder.com/practice/70610bf967994b22bb1c26f9ae901fa2?tpId=13&tqId=11191&tPage=1&rp=1&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking">剑指
  *     Offer 原题</a>
  */
-public class GetNumberOfK {
+public class ArrayTotalNumOrdered {
 
   public int total(int[] array, int k) {
     if (array == null) {

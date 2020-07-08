@@ -26,7 +26,7 @@ package org.ylzl.eden.practice.nowcoder;
  *     Offer 原题</a>
  * @since 2.0.0
  */
-public class NumberOfOneFromHex {
+public class MathTotalNumFromHex {
 
   public int numberOf(int n) {
     // return Integer.bitCount(n);
