@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,30 +15,21 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.algorithms.sorts;
+package org.ylzl.eden.practice.jdbc.mybatis.session;
 
 /**
- * 冒泡排序
+ * TODO
  *
  * @author gyl
  * @since 2.0.0
  */
-public class BubbleSort extends AbstractSort {
+public interface ResultContext<T> {
 
-	public static void main(String[] args) {
-		int[] unsorted = {9, 6, 2, 7, 5, 1, 3, 4, 8, 0};
-		int len = unsorted.length - 1;
-		int swapLen = len - 1;
-		int swapCount = 0;
-		for (int i = 0; i < swapLen; i++) {
-			for (int j = 0; j < swapLen - i; j++) { // 减去 i 是因为每轮会把最大的数放在最后面，不需要再比较
-				if (unsorted[j] > unsorted[j+1]) {
-					swap(unsorted, unsorted[j], unsorted[j+1]);
-					swapCount++;
-				}
-			}
-		}
-		print(unsorted);
-    System.out.println("交换次数：" + swapCount);
-  }
+	T getResultObject();
+
+	int getResultCount();
+
+	boolean isStopped();
+
+	void stop();
 }

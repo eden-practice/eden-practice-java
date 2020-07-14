@@ -19,7 +19,6 @@ package org.ylzl.eden.practice.jdbc.mybatis.session;
 
 import org.ylzl.eden.practice.jdbc.mybatis.cursor.Cursor;
 import org.ylzl.eden.practice.jdbc.mybatis.executor.BatchResult;
-import sun.plugin2.main.server.ResultHandler;
 
 import java.io.Closeable;
 import java.sql.Connection;
