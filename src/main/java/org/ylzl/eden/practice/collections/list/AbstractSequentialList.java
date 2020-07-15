@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -17,18 +17,19 @@
 
 package org.ylzl.eden.practice.collections.list;
 
-import org.ylzl.eden.practice.collections.Collection;
-import org.ylzl.eden.practice.collections.Iterator;
-
+import java.util.AbstractList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 /**
- * 抽象的链表 List
+ * TODO
  *
  * @author gyl
  * @since 2.0.0
  */
-public abstract class SequentialListAbstract<E> extends ListAbstract<E> {
+public abstract class AbstractSequentialList<E> extends AbstractList<E> {
 
 	public E get(int index) {
 		try {
@@ -40,7 +41,7 @@ public abstract class SequentialListAbstract<E> extends ListAbstract<E> {
 
 	public E set(int index, E element) {
 		try {
-			ListIterator<E> e = listIterator(index);
+			java.util.ListIterator<E> e = listIterator(index);
 			E oldVal = e.next();
 			e.set(element);
 			return oldVal;
@@ -59,7 +60,7 @@ public abstract class SequentialListAbstract<E> extends ListAbstract<E> {
 
 	public E remove(int index) {
 		try {
-			ListIterator<E> e = listIterator(index);
+			java.util.ListIterator<E> e = listIterator(index);
 			E outCast = e.next();
 			e.remove();
 			return outCast;
@@ -71,7 +72,7 @@ public abstract class SequentialListAbstract<E> extends ListAbstract<E> {
 	public boolean addAll(int index, Collection<? extends E> c) {
 		try {
 			boolean modified = false;
-			ListIterator<E> e1 = listIterator(index);
+			java.util.ListIterator<E> e1 = listIterator(index);
 			Iterator<? extends E> e2 = c.iterator();
 			while (e2.hasNext()) {
 				e1.add(e2.next());

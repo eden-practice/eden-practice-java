@@ -16,12 +16,12 @@ public class ReverseLinkedList {
 			return head;
 		}
 		ListNode pre = null;
-		ListNode next = null;
+		ListNode current = null;
 		while(head != null) {
-			next = head.next; // 用于下一轮遍历
+			current = head.next; // 用于下一轮遍历
 			head.next = pre; // 将当前节点指向上一轮的当前节点
 			pre = head;
-			head = next;
+			head = current;
 		}
 		return pre;
 	}

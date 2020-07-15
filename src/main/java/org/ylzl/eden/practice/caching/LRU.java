@@ -27,7 +27,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author gyl
  * @since 2.0.0
  */
-public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
+public class LRU<K, V> extends LinkedHashMap<K, V> {
 
   private final int maxCapacity;
 
@@ -35,7 +35,7 @@ public class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 
   private final Lock lock = new ReentrantLock();
 
-  public LRULinkedHashMap(int maxCapacity) {
+  public LRU(int maxCapacity) {
     super(maxCapacity, DEFAULT_LOAD_FACTOR, true);
     this.maxCapacity = maxCapacity;
   }

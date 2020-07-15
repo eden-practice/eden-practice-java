@@ -27,13 +27,11 @@ import java.util.RandomAccess;
  * <p>Vector 按 2 倍扩容，ArrayList 是 1.5 倍</p>
  * <p>已被 {@link java.util.Collections#synchronizedList(java.util.List)} 代替</p>
  *
- * @see AbstractArrayList
  * @author gyl
  * @since 2.0.0
  */
 @Deprecated
-public class AbstractVector<E> extends ListAbstract<E>
-    implements List<E>, RandomAccess, Cloneable, Serializable {
+public class Vector<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable {
 
 	@Override
 	public E get(int index) {

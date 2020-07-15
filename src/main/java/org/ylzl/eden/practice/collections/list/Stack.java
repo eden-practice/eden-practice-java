@@ -25,13 +25,13 @@ import org.ylzl.eden.practice.collections.queue.Deque;
  * <p>Stack 是线程安全类，继承 Vector，主要增加了 `push` 入栈和 `pop` 出栈的同步方法，遵循 LIFO（后进先出）原则。
  * 已被 {@link java.util.LinkedList} 代替入栈出栈。</p>
  *
- * @see AbstractLinkedList
+ * @see LinkedList
  * @see Deque
  * @author gyl
  * @since 2.0.0
  */
 @Deprecated
-public class AbstractStack<E> extends AbstractVector<E> {
+public class Stack<E> extends Vector<E> {
 
 	/*public E push(E item) { // 入栈，添加到元素到末尾，可换为 LinkedList.add(E item)
 		addElement(item);
