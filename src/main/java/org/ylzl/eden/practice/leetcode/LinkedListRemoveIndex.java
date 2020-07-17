@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,30 +15,40 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.algorithms.sorts;
+package org.ylzl.eden.practice.leetcode;
 
 /**
- * 选择排序
+ * 删除链表的倒数第N个节点
  *
  * @author gyl
+ * @see <a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">leetcode 原题</a>
  * @since 2.0.0
  */
-public class SelectSort extends AbstractSort {
+public class LinkedListRemoveIndex {
 
-  public static void main(String[] args) {
-    int[] unsorted = {9, 6, 2, 7, 5, 1, 3, 4, 8, 0};
-    int len = unsorted.length;
-    for (int i = 0; i < len - 1; i++) {
-    	int minIndex = i;
-    	for (int j = i + 1; j < len; j++) {
-    		if (unsorted[minIndex] > unsorted[j]) {
-    			minIndex = j;
-				}
-			}
-    	if (minIndex != i) {
-    		swap(unsorted, minIndex, i);
-			}
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+		ListNode pre = new ListNode(0);
+		pre.next = head;
+		ListNode start = pre;
+		ListNode end = pre;
+		while(n != 0) {
+			start = start.next;
+			n--;
 		}
-    print(unsorted);
+		while(start.next != null) {
+			start = start.next;
+			end = end.next;
+		}
+		end.next = end.next.next;
+		return pre.next;
+  }
+
+  public class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+      val = x;
+    }
   }
 }

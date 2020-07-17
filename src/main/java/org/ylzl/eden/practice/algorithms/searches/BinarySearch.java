@@ -14,5 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// 数组
-package org.ylzl.eden.practice.datastructures.arrays;
+
+package org.ylzl.eden.practice.algorithms.searches;
+
+/**
+ * 二分查找
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class BinarySearch {
+
+	private static int binarySearch(int[] nums, int target) {
+		int low = 0;
+		int high = nums.length -1;
+		while (low <= high) {
+			int middle = low + ((high - low) >> 1); // 4-0
+			if (target == nums[middle]) {
+				return middle;
+			}
+			if (target < nums[middle]) {
+				high = middle - 1;
+			} else {
+				low = middle + 1;
+			}
+		}
+		return -1;
+	}
+
+  public static void main(String[] args) {
+		int[] sorted = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int find = 10;
+    System.out.println(binarySearch(sorted, find));
+  }
+}

@@ -15,4 +15,21 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.sorts;
+package org.ylzl.eden.practice.caching;
+
+/**
+ * 缓存接口
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public interface Cache<K, V> {
+
+  boolean containsKey(Object key);
+
+  V get(Object key);
+
+	void put(K key, V value);
+
+  int size();
+}

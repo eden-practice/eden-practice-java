@@ -15,4 +15,25 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.searches;
+package org.ylzl.eden.practice.algorithms.trees;
+
+/**
+ * 普通二叉树
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class BinaryTree {
+
+	class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		public TreeNode(int val) {
+			this.val = val;
+		}
+	}
+
+
+}

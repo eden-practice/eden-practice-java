@@ -14,5 +14,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// 树
-package org.ylzl.eden.practice.datastructures.trees;
+
+package org.ylzl.eden.practice.leetcode;
+
+/**
+ * 反转链表
+ *
+ * @author gyl
+ * @see <a href="https://leetcode-cn.com/problems/linked-list-cycle/">leetcode 原题</a>
+ * @since 2.0.0
+ */
+public class LinkedListHasCycle {
+
+	public boolean hasCycle(ListNode head) {
+		if (head == null || head.next == null) {
+			return false;
+		}
+
+		ListNode slow = head;
+		ListNode fast = head.next;
+		while (slow != fast) {
+			if (fast == null || fast.next == null) {
+				return false;
+			}
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return true;
+	}
+
+	public class ListNode {
+		int val;
+		ListNode next = null;
+
+		ListNode(int val) {
+			this.val = val;
+		}
+	}
+}

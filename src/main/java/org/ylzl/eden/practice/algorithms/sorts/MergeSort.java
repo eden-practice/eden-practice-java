@@ -27,13 +27,12 @@ public class MergeSort extends AbstractSort {
 
   public static void main(String[] args) {
     int[] unsorted = {9, 6, 2, 7, 5, 1, 3, 4, 8, 0};
-    int len = unsorted.length;
     mergeSort(unsorted, 0, unsorted.length - 1);
     print(unsorted);
   }
 
   public static void mergeSort(int[] unsorted, int left, int right) {
-    int mid = (left + right) / 2; // 中间下标
+    int mid = left + (right - left) >> 1; // 中间下标
     if (left < right) {
       mergeSort(unsorted, left, mid); // 递归拆分左边
       mergeSort(unsorted, mid + 1, right); // 递归拆分右边

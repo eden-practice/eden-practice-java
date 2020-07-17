@@ -10,14 +10,17 @@ WARNING: 这是一个 Java 练习库
 |===
 | package | 描述
 
+| org.ylzl.eden.practice.algorithms
+| Java 算法
+
+| org.ylzl.eden.practice.caching
+| Java 缓存
+
 | org.ylzl.eden.practice.collections
 | Java 集合
 
 | org.ylzl.eden.practice.concurrent
 | Java 并发
-
-| org.ylzl.eden.practice.datastructures
-| Java 数据结构
 
 | org.ylzl.eden.practice.designpattern
 | Java 设计模式
@@ -58,11 +61,8 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.nowcoder
 | 牛客网题库
 
-| org.ylzl.eden.practice.searches
-| Java 查找
-
-| org.ylzl.eden.practice.sorts
-| Java 排序
+| org.ylzl.eden.practice.pool
+| Java 池化
 
 | org.ylzl.eden.practice.springframework
 | Spring 框架

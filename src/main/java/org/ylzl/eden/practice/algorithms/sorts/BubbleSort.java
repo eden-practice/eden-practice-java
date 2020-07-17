@@ -27,18 +27,14 @@ public class BubbleSort extends AbstractSort {
 
 	public static void main(String[] args) {
 		int[] unsorted = {9, 6, 2, 7, 5, 1, 3, 4, 8, 0};
-		int len = unsorted.length - 1;
-		int swapLen = len - 1;
-		int swapCount = 0;
-		for (int i = 0; i < swapLen; i++) {
-			for (int j = 0; j < swapLen - i; j++) { // 减去 i 是因为每轮会把最大的数放在最后面，不需要再比较
-				if (unsorted[j] > unsorted[j+1]) {
-					swap(unsorted, unsorted[j], unsorted[j+1]);
-					swapCount++;
+		int len = unsorted.length;
+		for (int i = 0; i < len - 1; i++) {
+			for (int j = 0; j < len - 1 - i; j++) {
+				if (unsorted[j] > unsorted[j + 1]) {
+					swap(unsorted, j, j+1);
 				}
 			}
 		}
 		print(unsorted);
-    System.out.println("交换次数：" + swapCount);
   }
 }
