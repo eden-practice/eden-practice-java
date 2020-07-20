@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.algorithms.trees;
+package org.ylzl.eden.practice.algorithms.datastructures.trees;
 
 /**
  * 普通二叉树
