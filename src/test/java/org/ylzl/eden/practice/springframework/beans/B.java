@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,12 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.factory;
+package org.ylzl.eden.practice.springframework.beans;
 
-import org.springframework.beans.factory.support.AbstractBeanFactory;
+import lombok.Data;
+import org.ylzl.eden.practice.springframework.beans.annotation.Component;
+
+import javax.annotation.Resource;
 
 /**
  * TODO
@@ -25,7 +28,17 @@ import org.springframework.beans.factory.support.AbstractBeanFactory;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
-	implements AutowireCapableBeanFactory {
+@Component
+public class B {
 
+	@Resource
+	private C c;
+
+	public C getC() {
+		return c;
+	}
+
+	public void setC(C c) {
+		this.c = c;
+	}
 }

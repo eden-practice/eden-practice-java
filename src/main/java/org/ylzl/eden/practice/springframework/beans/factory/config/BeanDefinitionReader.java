@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.factory;
+package org.ylzl.eden.practice.springframework.beans.factory.config;
 
-import org.springframework.beans.BeansException;
+import org.ylzl.eden.practice.springframework.beans.factory.singleton.SingletonBeanRegistry;
 
 /**
  * TODO
@@ -25,17 +25,7 @@ import org.springframework.beans.BeansException;
  * @author gyl
  * @since 2.0.0
  */
-public interface AutowireCapableBeanFactory {
+public interface BeanDefinitionReader {
 
-	int AUTOWIRE_NO = 0;
-
-	int AUTOWIRE_BY_NAME = 1;
-
-	int AUTOWIRE_BY_TYPE = 2;
-
-	int AUTOWIRE_CONSTRUCTOR = 3;
-
-	<T> T createBean(Class<T> beanClass) throws Exception;
-
-	void autowireBean(Object existingBean) throws Exception;
+  int loadBeanDefinitions(BeanDefinitionRegistry registry);
 }

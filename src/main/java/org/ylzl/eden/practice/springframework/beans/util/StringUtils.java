@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.annotation;
+package org.ylzl.eden.practice.springframework.beans.util;
 
-import java.lang.annotation.*;
+import lombok.NonNull;
+import lombok.experimental.UtilityClass;
 
 /**
  * TODO
@@ -25,7 +26,8 @@ import java.lang.annotation.*;
  * @author gyl
  * @since 2.0.0
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Indexed {}
+@UtilityClass
+public class StringUtils extends org.apache.commons.lang3.StringUtils {
+
+
+}

@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,12 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.core.annotation;
+package org.ylzl.eden.practice.springframework.beans;
 
-import java.lang.annotation.*;
+import lombok.Data;
+import org.ylzl.eden.practice.springframework.beans.annotation.Component;
+
+import javax.annotation.Resource;
 
 /**
  * TODO
@@ -25,16 +28,17 @@ import java.lang.annotation.*;
  * @author gyl
  * @since 2.0.0
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
-@Documented
-public @interface AliasFor {
+@Component
+public class A {
 
-	@AliasFor("attribute")
-	String value() default "";
+	@Resource
+	private B b;
 
-	@AliasFor("value")
-	String attribute() default "";
+	public B getB() {
+		return b;
+	}
 
-	Class<? extends Annotation> annotation() default Annotation.class;
+	public void setB(B b) {
+		this.b = b;
+	}
 }

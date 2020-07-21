@@ -25,5 +25,5 @@ package org.ylzl.eden.practice.springframework.beans.annotation;
  */
 public @interface Component {
 
-	String value() default "";
+  String value() default "";
 }

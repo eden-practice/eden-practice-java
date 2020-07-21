@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.config;
+package org.ylzl.eden.practice.springframework.beans.factory.support;
 
-import lombok.Data;
+import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinition;
 
 /**
  * TODO
@@ -25,14 +25,25 @@ import lombok.Data;
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class ConstructorArg {
+public class AbstractBeanDefinition implements BeanDefinition, Cloneable {
 
-  private int index;
+  private volatile Class<?> beanClass;
 
-  private String ref;
+  @Override
+  public Class<?> getBeanClass() {
+    return beanClass;
+  }
 
-  private String name;
+  @Override
+  public void setBeanClass(Class<?> beanClass) {
+    this.beanClass = beanClass;
+  }
 
-  private Object value;
+  @Override
+  public void setBeanClassName(String name) {}
+
+  @Override
+  public String getBeanClassName() {
+    return null;
+  }
 }

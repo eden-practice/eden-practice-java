@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.factory;
+package org.ylzl.eden.practice.springframework.aop.annotation;
+
+import java.lang.annotation.*;
 
 /**
  * TODO
@@ -23,9 +25,16 @@ package org.ylzl.eden.practice.springframework.beans.factory;
  * @author gyl
  * @since 2.0.0
  */
-public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, SingletonBeanRegistry {
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+@Documented
+public @interface AliasFor {
 
-	String SCOPE_SINGLETON = "singleton";
+	@AliasFor("attribute")
+	String value() default "";
 
-	String SCOPE_PROTOTYPE = "prototype";
+	@AliasFor("value")
+	String attribute() default "";
+
+	Class<? extends Annotation> annotation() default Annotation.class;
 }

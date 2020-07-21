@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.springframework.beans.annotation;
 
-import org.ylzl.eden.practice.springframework.core.annotation.AliasFor;
+import org.ylzl.eden.practice.springframework.aop.annotation.AliasFor;
 
 import java.lang.annotation.*;
 
@@ -33,7 +33,6 @@ import java.lang.annotation.*;
 @Indexed
 public @interface Service {
 
-	@AliasFor(annotation = Component.class)
-	String value() default "";
+  @AliasFor(annotation = Component.class)
+  String value() default "";
 }
-

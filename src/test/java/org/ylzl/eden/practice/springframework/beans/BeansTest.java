@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.config;
+package org.ylzl.eden.practice.springframework.beans;
 
-import lombok.Data;
+import org.junit.jupiter.api.Test;
+import org.ylzl.eden.practice.springframework.beans.context.ApplicationContext;
 
 /**
  * TODO
@@ -25,12 +26,16 @@ import lombok.Data;
  * @author gyl
  * @since 2.0.0
  */
-@Data
-public class FieldArg {
+class BeansTest {
 
-	private String name;
-
-	private String value;
-
-	private String typeName;
+	@Test
+	void assertThatAutowiredSuccess() throws Exception {
+		ApplicationContext context = new ApplicationContext();
+		A a = context.getBean(A.class);
+		B b = context.getBean(B.class);
+		C c = context.getBean(C.class);
+		System.out.println(a.getB());
+		System.out.println(b.getC());
+		System.out.println(c.getA());
+	}
 }

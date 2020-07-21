@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.factory;
+package org.ylzl.eden.practice.springframework.beans.factory.singleton;
 
 /**
  * TODO
@@ -23,15 +23,11 @@ package org.ylzl.eden.practice.springframework.beans.factory;
  * @author gyl
  * @since 2.0.0
  */
-public abstract class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory {
+public interface SingletonBeanRegistry {
 
-	@Override
-	public <T> T createBean(Class<T> beanClass) throws Exception {
-		return null;
-	}
+  void registerSingleton(String beanName, Object singletonObject);
 
-	@Override
-	public void autowireBean(Object existingBean) throws Exception {
+  boolean containsSingleton(String beanName);
 
-	}
+  Object getSingleton(String beanName);
 }
