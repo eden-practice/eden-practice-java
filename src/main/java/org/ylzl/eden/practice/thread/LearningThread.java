@@ -17,8 +17,7 @@
 
 package org.ylzl.eden.practice.thread;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * TODO
@@ -44,22 +43,35 @@ public class LearningThread {
     }
   }
 
-  public static void createByThreadPool() {
-    ExecutorService threadPool = Executors.newSingleThreadExecutor();
-    while (true) {
-      threadPool.execute(
-				() -> {
+  public static void createByThreadPool() throws ExecutionException, InterruptedException {
+		ExecutorService executorService = Executors.newFixedThreadPool(1);
+    Future<String> future =
+        executorService.submit(
+            () -> {
+            	Thread.sleep(2000L);
+              System.out.println("233");
+              return Thread.currentThread().getName();
+            });
+    System.out.println("123");
+		executorService.shutdown();
+    System.out.println(future.get());
+
+    /*ExecutorService executorService = Executors.newSingleThreadExecutor();
+		executorService.execute(
+			() -> {
+				while (true) {
 					System.out.println(Thread.currentThread().getName() + " is running ..");
 					try {
 						Thread.sleep(3000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-				});
-    }
-  }
+				}
+			});
+		executorService.shutdown();*/
+	}
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws ExecutionException, InterruptedException {
     new ExtendsThread().start();
     new Thread(new ImplementsRunnable()).start();
 		createByThreadPool();
