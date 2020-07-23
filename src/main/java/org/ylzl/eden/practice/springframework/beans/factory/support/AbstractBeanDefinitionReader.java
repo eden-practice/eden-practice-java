@@ -22,7 +22,6 @@ import org.ylzl.eden.practice.springframework.beans.annotation.Component;
 import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinition;
 import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinitionReader;
 import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinitionRegistry;
-import org.ylzl.eden.practice.springframework.beans.factory.singleton.SingletonBeanRegistry;
 import org.ylzl.eden.practice.springframework.beans.util.StringUtils;
 
 import java.lang.annotation.Annotation;

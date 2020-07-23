@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans;
+package org.ylzl.eden.practice.springframework.mvc.handler;
 
-import org.junit.jupiter.api.Test;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * TODO
@@ -25,16 +25,7 @@ import org.junit.jupiter.api.Test;
  * @author gyl
  * @since 2.0.0
  */
-class BeansTest {
+public interface HandlerMapping {
 
-	@Test
-	void assertThatAutowiredSuccess() throws Exception {
-		ApplicationContext context = new ApplicationContext();
-		A a = context.getBean(A.class);
-		B b = context.getBean(B.class);
-		C c = context.getBean(C.class);
-		System.out.println(a.getB());
-		System.out.println(b.getC());
-		System.out.println(c.getA());
-	}
+	HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception;
 }

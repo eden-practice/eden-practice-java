@@ -15,11 +15,10 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.factory.support;
+package org.ylzl.eden.practice.springframework.beans.factory.support.singleton;
 
 import org.springframework.util.Assert;
 import org.ylzl.eden.practice.springframework.beans.factory.ObjectFactory;
-import org.ylzl.eden.practice.springframework.beans.factory.singleton.SingletonBeanRegistry;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans;
+package org.ylzl.eden.practice.springframework.mvc.http;
 
-import org.junit.jupiter.api.Test;
+import org.springframework.ui.ModelMap;
+import org.ylzl.eden.practice.springframework.mvc.http.HttpStatus;
 
 /**
  * TODO
@@ -25,16 +26,13 @@ import org.junit.jupiter.api.Test;
  * @author gyl
  * @since 2.0.0
  */
-class BeansTest {
+public class ModelAndView {
 
-	@Test
-	void assertThatAutowiredSuccess() throws Exception {
-		ApplicationContext context = new ApplicationContext();
-		A a = context.getBean(A.class);
-		B b = context.getBean(B.class);
-		C c = context.getBean(C.class);
-		System.out.println(a.getB());
-		System.out.println(b.getC());
-		System.out.println(c.getA());
-	}
+	private Object view;
+
+	private ModelMap model;
+
+	private HttpStatus status;
+
+	private boolean cleared = false;
 }

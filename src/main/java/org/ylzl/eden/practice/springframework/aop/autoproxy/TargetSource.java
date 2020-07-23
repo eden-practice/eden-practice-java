@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans;
+package org.ylzl.eden.practice.springframework.aop.autoproxy;
 
-import org.junit.jupiter.api.Test;
+import org.springframework.lang.Nullable;
 
 /**
  * TODO
@@ -25,16 +25,13 @@ import org.junit.jupiter.api.Test;
  * @author gyl
  * @since 2.0.0
  */
-class BeansTest {
+public interface TargetSource {
 
-	@Test
-	void assertThatAutowiredSuccess() throws Exception {
-		ApplicationContext context = new ApplicationContext();
-		A a = context.getBean(A.class);
-		B b = context.getBean(B.class);
-		C c = context.getBean(C.class);
-		System.out.println(a.getB());
-		System.out.println(b.getC());
-		System.out.println(c.getA());
-	}
+	Class<?> getTargetClass();
+
+	boolean isStatic();
+
+	Object getTarget() throws Exception;
+
+	void releaseTarget(Object var1) throws Exception;
 }

@@ -17,8 +17,6 @@
 
 package org.ylzl.eden.practice.springframework.beans.factory.config;
 
-import org.ylzl.eden.practice.springframework.beans.factory.singleton.SingletonBeanRegistry;
-
 /**
  * TODO
  *

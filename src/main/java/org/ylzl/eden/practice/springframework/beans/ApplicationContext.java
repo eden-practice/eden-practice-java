@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.context;
+package org.ylzl.eden.practice.springframework.beans;
 
 import org.ylzl.eden.practice.springframework.beans.factory.BeanFactory;
 import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinition;
@@ -23,7 +23,6 @@ import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinitio
 import org.ylzl.eden.practice.springframework.beans.factory.config.BeanDefinitionRegistry;
 import org.ylzl.eden.practice.springframework.beans.factory.support.DefaultBeanDefinitionReader;
 import org.ylzl.eden.practice.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.ylzl.eden.practice.springframework.beans.factory.support.DefaultSingletonBeanRegistry;
 
 /**
  * TODO

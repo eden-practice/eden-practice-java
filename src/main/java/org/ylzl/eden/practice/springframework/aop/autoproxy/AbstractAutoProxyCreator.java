@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans;
+package org.ylzl.eden.practice.springframework.aop.autoproxy;
 
-import org.junit.jupiter.api.Test;
+import org.springframework.aop.TargetSource;
 
 /**
  * TODO
@@ -25,16 +25,13 @@ import org.junit.jupiter.api.Test;
  * @author gyl
  * @since 2.0.0
  */
-class BeansTest {
+public class AbstractAutoProxyCreator {
 
-	@Test
-	void assertThatAutowiredSuccess() throws Exception {
-		ApplicationContext context = new ApplicationContext();
-		A a = context.getBean(A.class);
-		B b = context.getBean(B.class);
-		C c = context.getBean(C.class);
-		System.out.println(a.getB());
-		System.out.println(b.getC());
-		System.out.println(c.getA());
+	public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) {
+		return null;
+	}
+
+	protected Object createProxy(Class<?> beanClass, String beanName, Object[] specificInterceptors, TargetSource targetSource) {
+		return null;
 	}
 }

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.springframework.beans.factory.singleton;
+package org.ylzl.eden.practice.springframework.beans.factory.support.singleton;
 
 /**
  * TODO
