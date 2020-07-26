@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
+ *  (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,36 +15,30 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.algorithms.searches;
+package org.ylzl.eden.practice.io.bio;
+
+import java.io.Closeable;
 
 /**
- * 二分查找
+ * TODO
  *
  * @author gyl
  * @since 2.0.0
  */
-public class BinarySearch {
+public abstract class Reader implements Readable, Closeable {
 
-	private static int binarySearch(int[] nums, int target) {
-		int low = 0;
-		int high = nums.length -1;
-		while (low <= high) {
-			int middle = low + ((high - low) >> 1);
-			if (target == nums[middle]) {
-				return middle;
-			}
-			if (target < nums[middle]) {
-				high = middle - 1;
-			} else {
-				low = middle + 1;
-			}
-		}
-		return -1;
+	protected Object lock;
+
+	protected Reader() {
+		this.lock = this;
 	}
 
-  public static void main(String[] args) {
-		int[] sorted = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		int find = 10;
-    System.out.println(binarySearch(sorted, find));
-  }
+	protected Reader(Object lock) {
+		if (lock == null) {
+			throw new NullPointerException();
+		}
+		this.lock = lock;
+	}
+
+
 }

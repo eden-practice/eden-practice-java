@@ -30,7 +30,7 @@ public class BubbleSort extends AbstractSort {
 		int len = unsorted.length;
 		for (int i = 0; i < len - 1; i++) {
 			for (int j = 0; j < len - 1 - i; j++) {
-				if (unsorted[j] > unsorted[j + 1]) {
+				if (unsorted[j] > unsorted[j+1]) {
 					swap(unsorted, j, j+1);
 				}
 			}

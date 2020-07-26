@@ -25,66 +25,39 @@ import java.util.Arrays;
  * @author gyl
  * @since 2.0.0
  */
-public class QuickSort {
+public class QuickSort extends AbstractSort {
 
-	public static void main(String[] args) {
-		int[] arr = {72, 6, 57, 88, 60, 42, 83, 73, 48, 85};
-		sort(arr, 0, arr.length - 1);
-		System.out.println("结果：" + Arrays.toString(arr));
+  public static void main(String[] args) {
+    int[] arr = {5, 6, 2, 7, 9, 1, 3, 4, 8, 0};
+    sort(arr, 0, arr.length - 1);
+    System.out.println(Arrays.toString(arr));
+  }
+
+	private static void sort(int[] unsorted, int start, int end) {
+  	if (start >= end) {
+  		return;
+		}
+  	int index = partition(unsorted, start, end);
+  	sort(unsorted, start, index-1);
+  	sort(unsorted, index+1, end);
 	}
 
-	/**
-	 * 排序
-	 *
-	 * @param arr 待排序数组
-	 * @param left 数组最小下标
-	 * @param right 数组最大下标
-	 */
-	public static void sort(int[] arr, int left, int right) {
-		if (left < right) {
-			int temp = partition(arr, left, right);
-			System.out.println("分区结果：" + temp);
-			sort(arr, left, temp - 1);
-			sort(arr, temp + 1, right);
+	private static int partition(int[] unsorted, int start, int end) {
+  	int pivot = unsorted[start];
+  	int left = start;
+  	int right = end;
+  	while (left != right) {
+  		while (left < right && unsorted[right] > pivot) {
+  			right--;
+			}
+  		while (left < right && unsorted[left] <= pivot) {
+  			left++;
+			}
+  		if (left < right) {
+  			swap(unsorted, left, right);
+			}
 		}
-	}
-
-	/**
-	 * 分区
-	 *
-	 * @param arr 待排序数组
-	 * @param left 数组最小下标
-	 * @param right 数组最大下标
-	 * @return 基准数的下标
-	 */
-	public static int partition(int[] arr, int left, int right) {
-		int pivot = arr[left]; // 定义基准数，默认取数组的第一个元素 72
-		while (left < right) { // 使用双向指针
-			// 右向指针
-			// 因为默认的基准数是在最左边，所以首先从右边开始遍历判断
-			while (left < right && arr[right] > pivot) {
-				right--; // 如果当前 arr[right] 比基准数大，则直接将右指针左移一位
-				System.out.println("右向指针循环：" + Arrays.toString(arr));
-			}
-			System.out.println("右向指针跳出循环：" + arr[right] + "<=" + pivot);
-			if (left < right) {
-				arr[left++] = arr[right];
-			}
-			System.out.println("右向指针交换结果：" + Arrays.toString(arr));
-			// 左向指针
-			while (left < right && arr[left] <= pivot) {
-				left++;
-				System.out.println("左向指针循环：" + Arrays.toString(arr));
-			}
-			System.out.println("左向指针跳出循环：" + arr[left] + ">" + pivot);
-			// 跳出上一个循环说明当前的arr[left]的值大于基准数，需要将该值填充到右边空出的位置，然后当前位置空出。
-			if (left < right) {
-				arr[right--] = arr[left];
-			}
-			System.out.println("左向指针交换结果：" + Arrays.toString(arr));
-		}
-		// 当循环结束说明左指针和右指针已经相遇，这时将基准数填入该位置，并返回该位置的下标
-		arr[left] = pivot;
-		return left;
+  	swap(unsorted, start, left);
+  	return left;
 	}
 }

@@ -27,39 +27,40 @@ public class MergeSort extends AbstractSort {
 
   public static void main(String[] args) {
     int[] unsorted = {9, 6, 2, 7, 5, 1, 3, 4, 8, 0};
-    mergeSort(unsorted, 0, unsorted.length - 1);
+    sort(unsorted, 0, unsorted.length - 1);
     print(unsorted);
   }
 
-  public static void mergeSort(int[] unsorted, int left, int right) {
-    int mid = left + (right - left) >> 1; // 中间下标
-    if (left < right) {
-      mergeSort(unsorted, left, mid); // 递归拆分左边
-      mergeSort(unsorted, mid + 1, right); // 递归拆分右边
-      merge(unsorted, left, mid, right); // 合并左右
-    }
-  }
+	private static void sort(int[] unsorted, int start, int end) {
+  	if (start >= end) {
+  		return;
+		}
+  	int mid = start + ((end - start) >> 1);
+  	sort(unsorted, start, mid);
+  	sort(unsorted, mid+1, end);
+  	merge(unsorted, start, mid, end);
+	}
 
-  public static void merge(int[] unsorted, int left, int mid, int right) {
-    int[] temp = new int[right - left + 1];
-    int i = left;
-    int j = mid + 1;
-    int k = 0;
-    while (i <= mid && j <= right) {
-      if (unsorted[i] <= unsorted[j]) {
-        temp[k++] = unsorted[i++];
-      } else {
-        temp[k++] = unsorted[j++];
-      }
-    }
-    while (i <= mid) {
-      temp[k++] = unsorted[i++];
-    }
-    while (j <= right) {
-      temp[k++] = unsorted[j++];
-    }
-    for (int m = 0; m < temp.length; m++) {
-			unsorted[m + left] = temp[m];
-    }
-  }
+	private static void merge(int[] unsorted, int start, int mid, int end) {
+  	int[] merge = new int[end - start + 1];
+  	int mergeIndex = 0;
+  	int left = start;
+  	int right = mid + 1;
+  	while (left <= mid && right <= end) {
+  		if (unsorted[left] <= unsorted[right]) {
+  			merge[mergeIndex++] = unsorted[left++];
+			} else {
+				merge[mergeIndex++] = unsorted[right++];
+			}
+		}
+		while (left <= mid) {
+			merge[mergeIndex++] = unsorted[left++];
+		}
+		while (right <= end) {
+			merge[mergeIndex++] = unsorted[right++];
+		}
+		for (int m = 0; m < merge.length; m++) {
+			unsorted[m + start] = merge[m];
+		}
+	}
 }

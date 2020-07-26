@@ -24,4 +24,6 @@ package org.ylzl.eden.practice.algorithms.sorts;
  * @since 2.0.0
  */
 public class ShellSort {
+
+	
 }

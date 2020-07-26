@@ -31,14 +31,16 @@ public class InsertSort extends AbstractSort {
 		// 6, 9, 2, 7, 5, 1, 3, 4, 8, 0
 		// 2, 6, 9, 7, 5, 1, 3, 4, 8, 0
     int len = unsorted.length;
-    for (int i = 0; i < len; i++) {
-    	int j = i;
-			int target = unsorted[j]; // target = 9, target = 6,
-    	while (j > 0 && target < unsorted[j - 1]) { // target = 6 < unsorted[0] = 9
-				unsorted[j] = unsorted[j - 1]; // unsorted[1] = 9
-    		j--;
+    for (int i = 1; i < len; i++) {
+    	int insertIndex = i;
+    	int insertValue = unsorted[i];
+    	while (insertIndex > 0 && insertValue < unsorted[insertIndex-1]) {
+				unsorted[insertIndex] = unsorted[insertIndex-1];
+				insertIndex--;
 			}
-    	unsorted[j] = target; // unsorted[0] = 6, j 是经过 j-- 的
+    	if (insertIndex != i) {
+    		unsorted[insertIndex] = insertValue;
+			}
 		}
     print(unsorted);
   }

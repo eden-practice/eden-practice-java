@@ -15,30 +15,53 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.algorithms.sorts;
+package org.ylzl.eden.practice.io.bio;
+
+import java.io.Closeable;
+import java.io.IOException;
 
 /**
- * 选择排序
+ * TODO
  *
  * @author gyl
  * @since 2.0.0
  */
-public class SelectSort extends AbstractSort {
+public abstract class InputStream implements Closeable {
 
-  public static void main(String[] args) {
-    int[] unsorted = {9, 6, 2, 7, 5, 1, 3, 4, 8, 0};
-    int len = unsorted.length;
-    for (int i = 0; i < len-1; i++) {
-    	int minIndex = i;
-    	for (int j = i + 1; j < len; j++) {
-    		if (unsorted[minIndex] > unsorted[j]) {
-					minIndex = j;
-				}
-			}
-    	if (minIndex != i) {
-    		swap(unsorted, minIndex,i);
-			}
+	private static final int MAX_SKIP_BUFFER_SIZE = 2048;
+
+	public abstract int read() throws IOException;
+
+	public int read(byte b[]) throws IOException {
+		return read(b, 0, b.length);
+	}
+
+	public int read(byte b[], int off, int len) throws IOException {
+		if (b == null) {
+			throw new NullPointerException();
+		} else if (off < 0 || len < 0 || len > b.length - off) {
+			throw new IndexOutOfBoundsException();
+		} else if (len == 0) {
+			return 0;
 		}
-    print(unsorted);
-  }
+
+		int c = read();
+		if (c == -1) {
+			return -1;
+		}
+		b[off] = (byte)c;
+
+		int i = 1;
+		try {
+			for (; i < len ; i++) {
+				c = read();
+				if (c == -1) {
+					break;
+				}
+				b[off + i] = (byte)c;
+			}
+		} catch (IOException ee) {
+		}
+		return i;
+	}
 }
