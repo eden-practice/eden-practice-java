@@ -33,33 +33,33 @@ public class QuickSort extends AbstractSort {
     System.out.println(Arrays.toString(arr));
   }
 
-	private static void sort(int[] unsorted, int start, int end) {
-  	if (start >= end) {
-  		return;
-		}
+  private static void sort(int[] unsorted, int start, int end) {
+    if (start >= end) {
+      return;
+    }
 
-  	int index = partition(unsorted, start, end);
-  	sort(unsorted, start, index - 1);
-  	sort(unsorted, index + 1, end);
-	}
+    int index = partition(unsorted, start, end);
+    sort(unsorted, start, index - 1);
+    sort(unsorted, index + 1, end);
+  }
 
-	private static int partition(int[] unsorted, int start, int end) {
-  	int pivot = unsorted[start];
-  	int pivotIndex = start;
-  	int left = start;
-  	int right = end;
-  	while (left != right) {
-  		while (left < right && unsorted[right] > pivot) {
-  			right--;
-			}
-  		while (left < right && unsorted[left] <= pivot) {
-  			left++;
-			}
-  		if (left < right) {
-  			swap(unsorted, left, right);
-			}
-		}
-  	swap(unsorted, pivotIndex, left);
-  	return left;
-	}
+  private static int partition(int[] unsorted, int start, int end) {
+    int pivot = unsorted[start];
+    int pivotIndex = start;
+    int left = start;
+    int right = end;
+    while (left != right) {
+      while (left < right && unsorted[right] > pivot) {
+        right--;
+      }
+      while (left < right && unsorted[left] <= pivot) {
+        left++;
+      }
+      if (left < right) {
+        swap(unsorted, left, right);
+      }
+    }
+    swap(unsorted,left, pivotIndex);
+    return left;
+  }
 }
