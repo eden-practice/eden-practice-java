@@ -32,6 +32,41 @@ public class MergeSort extends AbstractSort {
   }
 
 	private static void sort(int[] unsorted, int start, int end) {
+		if (start >= end) {
+			return;
+		}
+		int mid = start + ((end - start) >> 1);
+		sort(unsorted, start, mid);
+		sort(unsorted, mid+1, end);
+		merge(unsorted, start, mid, end);
+	}
+
+	// 9, 6, 2, 7, 5, 1, 3, 4, 8, 0
+	// 6, 9, 2, 7
+	private static void merge(int[] unsorted, int start, int mid, int end) {
+  	int[] merge = new int[end - start + 1];
+  	int mergeIndex = 0;
+  	int left = start;
+  	int right = mid + 1;
+  	while (left <= mid && right <= end) {
+  		if (unsorted[left] <= unsorted[right]) {
+				merge[mergeIndex++] = unsorted[left++];
+			} else {
+				merge[mergeIndex++] = unsorted[right++];
+			}
+		}
+		while (left <= mid) {
+			merge[mergeIndex++] = unsorted[left++];
+		}
+		while (right <= end) {
+			merge[mergeIndex++] = unsorted[right++];
+		}
+		for (int i = 0; i < merge.length; i++) {
+			unsorted[i + start] = merge[i];
+		}
+	}
+
+/*	private static void sort(int[] unsorted, int start, int end) {
   	if (start >= end) {
   		return;
 		}
@@ -62,5 +97,5 @@ public class MergeSort extends AbstractSort {
 		for (int m = 0; m < merge.length; m++) {
 			unsorted[m + start] = merge[m];
 		}
-	}
+	}*/
 }

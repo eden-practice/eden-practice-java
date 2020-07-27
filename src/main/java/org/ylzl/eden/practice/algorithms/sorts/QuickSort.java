@@ -37,13 +37,15 @@ public class QuickSort extends AbstractSort {
   	if (start >= end) {
   		return;
 		}
+
   	int index = partition(unsorted, start, end);
-  	sort(unsorted, start, index-1);
-  	sort(unsorted, index+1, end);
+  	sort(unsorted, start, index - 1);
+  	sort(unsorted, index + 1, end);
 	}
 
 	private static int partition(int[] unsorted, int start, int end) {
   	int pivot = unsorted[start];
+  	int pivotIndex = start;
   	int left = start;
   	int right = end;
   	while (left != right) {
@@ -57,7 +59,7 @@ public class QuickSort extends AbstractSort {
   			swap(unsorted, left, right);
 			}
 		}
-  	swap(unsorted, start, left);
+  	swap(unsorted, pivotIndex, left);
   	return left;
 	}
 }

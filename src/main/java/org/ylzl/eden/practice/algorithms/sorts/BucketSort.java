@@ -23,5 +23,25 @@ package org.ylzl.eden.practice.algorithms.sorts;
  * @author gyl
  * @since 2.0.0
  */
-public class BucketSort {
+public class BucketSort extends AbstractSort {
+
+	public static void main(String[] args) {
+		double[] unsorted = {22.01, 88.1, 0.5, 99, 11.11};
+		sort(unsorted);
+		print(unsorted);
+	}
+
+	private static void sort(double[] unsorted) {
+		double max = unsorted[0];
+		double min = unsorted[0];
+		for (int i = 1; i < unsorted.length; i++) {
+			if (unsorted[i] > max) {
+				max = unsorted[i];
+			}
+			if (unsorted[i] < min) {
+				min = unsorted[i];
+			}
+		}
+		double parts = max - min;
+	}
 }

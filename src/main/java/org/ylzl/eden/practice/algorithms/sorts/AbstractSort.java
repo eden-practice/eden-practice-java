@@ -42,4 +42,28 @@ public abstract class AbstractSort {
 		}
     System.out.println(sb.toString());
 	}
+
+	protected static void print(String[] sorted) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("排序后的结果：");
+		for (int i = 0; i < sorted.length; i++) {
+			sb.append(sorted[i]);
+			if (i != sorted.length - 1) {
+				sb.append(",");
+			}
+		}
+		System.out.println(sb.toString());
+	}
+
+	protected static void print(double[] sorted) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("排序后的结果：");
+		for (int i = 0; i < sorted.length; i++) {
+			sb.append(sorted[i]);
+			if (i != sorted.length - 1) {
+				sb.append(",");
+			}
+		}
+		System.out.println(sb.toString());
+	}
 }
