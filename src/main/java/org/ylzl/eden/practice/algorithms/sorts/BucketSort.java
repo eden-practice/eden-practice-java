@@ -44,4 +44,5 @@ public class BucketSort extends AbstractSort {
 		}
 		double parts = max - min;
 	}
+
 }
