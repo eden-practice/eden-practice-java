@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.collections.queue;
+package org.ylzl.eden.practice.collections.queue.learning;
 
 import org.ylzl.eden.practice.concurrent.LearningDelayed;
 
@@ -24,12 +24,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * TODO
+ * 延时队列
  *
  * @author gyl
  * @since 2.0.0
  */
-public class DelayQueueExample {
+public class LearningDelayQueue {
 
   public static void main(String[] args) {
     DelayQueue<LearningDelayed> queue = new DelayQueue();

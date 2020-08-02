@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.thread;
+package org.ylzl.eden.practice.thread.learning;
 
 import java.util.concurrent.*;
 
@@ -25,7 +25,7 @@ import java.util.concurrent.*;
  * @author gyl
  * @since 2.0.0
  */
-public class LearningThread {
+public class CreateThread {
 
   public static class ExtendsThread extends Thread {
 
