@@ -34,7 +34,7 @@ public class LearningDelayQueue {
   public static void main(String[] args) {
     DelayQueue<LearningDelayed> queue = new DelayQueue();
     for (int i = 1; i <= 10; i++) {
-      LearningDelayed learningDelayed = new LearningDelayed("订单信息" + i, i * 10);
+      LearningDelayed learningDelayed = new LearningDelayed("订单信息" + i, i * 2);
       System.out.println("新增订单：" + learningDelayed);
       queue.add(learningDelayed);
     }
@@ -50,7 +50,7 @@ public class LearningDelayQueue {
 
     executorService.execute(
         () -> {
-          while (true) {
+          while (!queue.isEmpty()) {
             LearningDelayed task = null;
             try {
               task = queue.take();
@@ -60,5 +60,7 @@ public class LearningDelayQueue {
             System.out.println("延迟处理订单消息：" + task);
           }
         });
+
+		executorService.shutdown();
   }
 }
