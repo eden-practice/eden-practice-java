@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.collections.queue.learning;
 
-import org.ylzl.eden.practice.concurrent.LearningDelayed;
+import org.ylzl.eden.practice.concurrent.learning.LearningDelayed;
 
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.ExecutorService;

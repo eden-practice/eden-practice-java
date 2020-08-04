@@ -15,30 +15,4 @@
  * limitations under the License.
  */
 
--- 通过分组取出最大值
--- 例如找出每个课程考试成绩最高的学生
-
--- 实现方式1：使用 IN 子查询获取所有
-SELECT
-    t1.course, t1.student
-FROM
-    student_scores t1
-WHERE
-    t1.scores IN
-    (
-        SELECT MAX(t2.scores) FROM student_scores t2 GROUP BY t2.course
-    );
-
--- 实现方式2：使用 ROW_NUMBER() OVER，通过 PARTITION BY 对课程分组，然后使用 ORDER BY 降序（PARTITION BY 分析函数，性能最差）
-SELECT
-    t2.course, t2.student
-FROM
-(
-    SELECT
-        t1.course, t1.student,
-        ROW_NUMBER() OVER (PARTITION BY t1.course ORDER BY t1.scores DESC) rn1
-    FROM student_scores t1
-) t2
-WHERE t1.rn = 1;
-
-
+package org.ylzl.eden.practice.algorithms.datastructures.arrays;

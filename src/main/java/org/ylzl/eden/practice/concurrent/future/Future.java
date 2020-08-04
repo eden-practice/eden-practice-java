@@ -15,41 +15,17 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.concurrent;
-
-import lombok.ToString;
-
-import java.util.concurrent.Delayed;
-import java.util.concurrent.TimeUnit;
+package org.ylzl.eden.practice.concurrent.future;
 
 /**
- * 延迟接口例子
+ * 自定义 Future
  *
  * @author gyl
  * @since 2.0.0
  */
-@ToString
-public class LearningDelayed implements Delayed {
+public interface Future<V> {
 
-  private final String orderId; // 订单 ID
+	V get() throws InterruptedException;
 
-  private final long timestamp; // 创建时间戳
-
-  private final long expire; // 过期时间戳
-
-  public LearningDelayed(String orderId, long expireSeconds) {
-    this.orderId = orderId;
-    this.timestamp = System.currentTimeMillis();
-    this.expire = this.timestamp + expireSeconds * 1000L;
-  }
-
-  @Override
-  public long getDelay(TimeUnit unit) {
-    return this.expire - System.currentTimeMillis();
-  }
-
-  @Override
-  public int compareTo(Delayed o) {
-    return (int) (this.getDelay(TimeUnit.MILLISECONDS) - o.getDelay(TimeUnit.MILLISECONDS));
-  }
+	void set(V data);
 }

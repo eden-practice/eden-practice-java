@@ -22,7 +22,7 @@ import com.google.common.collect.Lists;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import org.ylzl.eden.practice.data.json.JacksonUtils;
+import org.ylzl.eden.practice.data.json.LearningJackson;
 
 import java.io.Serializable;
 import java.util.List;
@@ -283,7 +283,7 @@ public class BinaryTree implements Serializable {
     binaryTree.add(12);
     binaryTree.add(13);
     binaryTree.add(14);
-    System.out.println(JacksonUtils.toJSONString(binaryTree));
+    System.out.println(LearningJackson.toJSONString(binaryTree));
     System.out.println("查找 5 是否存在：" + binaryTree.search(5));
     System.out.println("查找 6 是否存在：" + binaryTree.search(6));
     System.out.println("树的深度为：" + binaryTree.depth());

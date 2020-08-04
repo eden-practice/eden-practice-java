@@ -39,7 +39,7 @@ import java.util.Map;
  * @since 2.0.0
  */
 @UtilityClass
-public class JacksonUtils {
+public class LearningJackson {
 
   private static class DefaultObjectMapper extends ObjectMapper {
 

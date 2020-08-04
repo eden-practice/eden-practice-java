@@ -2,12 +2,6 @@ package org.ylzl.eden.practice.concurrent.future;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * 自定义 Future 测试
- *
- * @author gyl
- * @since 2.0.0
- */
 public class FutureTest {
 
   @Test
