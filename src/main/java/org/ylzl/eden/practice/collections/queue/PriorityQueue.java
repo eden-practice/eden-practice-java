@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
+ *  (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -14,5 +14,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-// @see https://leetcode-cn.com
-package org.ylzl.eden.practice.leetcode;
+
+package org.ylzl.eden.practice.collections.queue;
+
+import org.ylzl.eden.practice.collections.Iterator;
+
+import java.io.Serializable;
+
+/**
+ * 优先队列
+ *
+ * <p>使用完全二叉树表示，保证每次取出的元素都是队列中权值最小的</p>
+ *
+ * @author gyl
+ * @since 2.0.0
+ */
+public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable {
+
+	@Override
+	public Iterator<E> iterator() {
+		return null;
+	}
+
+	@Override
+	public int size() {
+		return 0;
+	}
+
+	@Override
+	public boolean offer(E e) {
+		return false;
+	}
+
+	@Override
+	public E poll() {
+		return null;
+	}
+
+	@Override
+	public E peek() {
+		return null;
+	}
+}

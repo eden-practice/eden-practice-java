@@ -1,7 +1,6 @@
 package org.ylzl.eden.practice.concurrent.future;
 
 import org.junit.jupiter.api.Test;
-import org.ylzl.eden.practice.concurrent.Future;
 
 /**
  * 自定义 Future 测试

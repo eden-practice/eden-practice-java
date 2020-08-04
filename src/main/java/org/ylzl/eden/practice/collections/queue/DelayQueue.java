@@ -19,7 +19,6 @@ package org.ylzl.eden.practice.collections.queue;
 
 import org.ylzl.eden.practice.collections.Collection;
 import org.ylzl.eden.practice.collections.Iterator;
-import org.ylzl.eden.practice.concurrent.Delayed;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -33,11 +32,11 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
  * @author gyl
  * @since 2.0.0
  */
-public class AbstractDelayQueue<E extends Delayed> extends QueueAbstract<E> implements BlockingQueue<E> {
+public class DelayQueue<E extends Delayed> extends AbstractQueue<E> implements BlockingQueue<E> {
 
   private final transient ReentrantLock lock = new ReentrantLock();
 
-  private final AbstractPriorityQueue<E> q = new AbstractPriorityQueue<E>();
+  private final PriorityQueue<E> q = new PriorityQueue<E>();
 
   private Thread leader = null;
 

@@ -15,40 +15,27 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.leetcode;
+package org.ylzl.eden.practice.thread.pool;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
- * 反转链表
+ * TODO
  *
  * @author gyl
- * @see <a href="https://leetcode-cn.com/problems/linked-list-cycle/">leetcode 原题</a>
  * @since 2.0.0
  */
-public class LinkedListHasCycle {
+public interface Future<V> {
 
-	public boolean hasCycle(ListNode head) {
-		if (head == null || head.next == null) {
-			return false;
-		}
+	boolean cancel(boolean mayInterruptIfRunning);
 
-		ListNode slow = head;
-		ListNode fast = head.next;
-		while (slow != fast) {
-			if (fast == null || fast.next == null) {
-				return false;
-			}
-			fast = fast.next.next;
-			slow = slow.next;
-		}
-		return true;
-	}
+	boolean isCancelled();
 
-	public class ListNode {
-		int val;
-		ListNode next = null;
+	boolean isDone();
 
-		ListNode(int val) {
-			this.val = val;
-		}
-	}
+	V get() throws InterruptedException, ExecutionException;
+
+	V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException;
 }

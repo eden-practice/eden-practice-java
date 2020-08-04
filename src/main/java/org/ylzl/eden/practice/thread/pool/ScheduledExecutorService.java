@@ -15,31 +15,20 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.leetcode;
+package org.ylzl.eden.practice.thread.pool;
+
+import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
 
 /**
- * 爬楼梯，给定一个 n 阶，每次只能爬 1 - 2 阶，统计有几种方法爬到 n 阶。
- *
- * <p>使用斐波那契数列实现
+ * TODO
  *
  * @author gyl
- * @see <a href="https://leetcode-cn.com/problems/climbing-stairs/submissions">leetcode 原题</a>
  * @since 2.0.0
  */
-public class ClimbStairs {
+public interface ScheduledExecutorService extends ExecutorService {
 
-  public int climbStairs(int n) {
-    if (n <= 2) {
-      return n;
-    }
+	ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit);
 
-    int fisrt = 2; // 差 2 阶
-    int second = 1; // 差 1 阶
-    for (int i = 2; i < n; i++) {
-      int sum = fisrt + second; // p(n) = p(n-1) + p(n-2);
-      second = fisrt;
-      fisrt = sum;
-    }
-    return fisrt;
-  }
+	<V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit);
 }

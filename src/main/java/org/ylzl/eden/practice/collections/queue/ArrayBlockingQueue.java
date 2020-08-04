@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -17,19 +17,19 @@
 
 package org.ylzl.eden.practice.collections.queue;
 
+import org.ylzl.eden.practice.collections.Collection;
 import org.ylzl.eden.practice.collections.Iterator;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 /**
- * 优先队列
- *
- * <p>使用完全二叉树表示，保证每次取出的元素都是队列中权值最小的</p>
+ * TODO
  *
  * @author gyl
  * @since 2.0.0
  */
-public class AbstractPriorityQueue<E> extends QueueAbstract<E> implements Serializable {
+public class ArrayBlockingQueue<E> extends AbstractQueue<E> implements BlockingQueue<E>, Serializable {
 
 	@Override
 	public Iterator<E> iterator() {
@@ -38,6 +38,41 @@ public class AbstractPriorityQueue<E> extends QueueAbstract<E> implements Serial
 
 	@Override
 	public int size() {
+		return 0;
+	}
+
+	@Override
+	public void put(E e) throws InterruptedException {
+
+	}
+
+	@Override
+	public boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException {
+		return false;
+	}
+
+	@Override
+	public E take() throws InterruptedException {
+		return null;
+	}
+
+	@Override
+	public E poll(long timeout, TimeUnit unit) throws InterruptedException {
+		return null;
+	}
+
+	@Override
+	public int remainingCapacity() {
+		return 0;
+	}
+
+	@Override
+	public int drainTo(Collection<? super E> c) {
+		return 0;
+	}
+
+	@Override
+	public int drainTo(Collection<? super E> c, int maxElements) {
 		return 0;
 	}
 

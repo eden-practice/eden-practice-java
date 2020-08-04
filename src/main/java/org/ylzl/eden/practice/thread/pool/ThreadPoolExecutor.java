@@ -15,38 +15,50 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.nowcoder;
+package org.ylzl.eden.practice.thread.pool;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 /**
- * 从尾到头打印链表（递归）
+ * TODO
  *
  * @author gyl
- * @see <a
- *     href="https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035?tpId=13&tqId=11156&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">剑指
- *     Offer 原题</a>
  * @since 2.0.0
  */
-public class ListReversePrint {
+public class ThreadPoolExecutor extends AbstractExecutorService {
 
-  public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-    ArrayList<Integer> arrayList = new ArrayList<>();
-    if (listNode != null) {
-      arrayList.addAll(printListFromTailToHead(listNode)); // 从尾到头
-      arrayList.add(listNode.val);
-    }
-    return arrayList;
-  }
+	public ThreadPoolExecutor(int corePoolSize,
+														int maximumPoolSize,
+														long keepAliveTime,
+														TimeUnit unit,
+														BlockingQueue<Runnable> workQueue) {
+	}
 
-  public class ListNode {
 
-    int val;
+	@Override
+	public void shutdown() {
 
-    ListNode next = null;
+	}
 
-    ListNode(int val) {
-      this.val = val;
-    }
-  }
+	@Override
+	public List<Runnable> shutdownNow() {
+		return null;
+	}
+
+	@Override
+	public boolean isShutdown() {
+		return false;
+	}
+
+	@Override
+	public boolean isTerminated() {
+		return false;
+	}
+
+	@Override
+	public boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException {
+		return false;
+	}
 }

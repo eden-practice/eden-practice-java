@@ -1,7 +1,5 @@
 package org.ylzl.eden.practice.concurrent.future;
 
-import org.ylzl.eden.practice.concurrent.Future;
-
 /**
  * 异步调用
  *

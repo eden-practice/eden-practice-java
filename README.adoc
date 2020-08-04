@@ -46,20 +46,8 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.jvm
 | Java 虚拟机
 
-| org.ylzl.eden.practice.leetcode
-| Leetcode 题库
-
-| org.ylzl.eden.practice.mq
-| Java 消息队列
-
 | org.ylzl.eden.practice.net
 | Java 网络编程
-
-| org.ylzl.eden.practice.nosql
-| NoSQL 数据库
-
-| org.ylzl.eden.practice.nowcoder
-| 牛客网题库
 
 | org.ylzl.eden.practice.pool
 | Java 池化

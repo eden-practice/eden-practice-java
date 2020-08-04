@@ -15,40 +15,15 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.leetcode;
+package org.ylzl.eden.practice.thread;
 
 /**
- * 删除链表的倒数第N个节点
+ * TODO
  *
  * @author gyl
- * @see <a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">leetcode 原题</a>
  * @since 2.0.0
  */
-public class LinkedListRemoveIndex {
+public interface Runnable {
 
-  public ListNode removeNthFromEnd(ListNode head, int n) {
-		ListNode pre = new ListNode(0);
-		pre.next = head;
-		ListNode start = pre;
-		ListNode end = pre;
-		while(n != 0) {
-			start = start.next;
-			n--;
-		}
-		while(start.next != null) {
-			start = start.next;
-			end = end.next;
-		}
-		end.next = end.next.next;
-		return pre.next;
-  }
-
-  public class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-    }
-  }
+	void run();
 }

@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.mq.learning;
+package org.ylzl.eden.practice.collections.queue.learning;
 
 import com.google.common.collect.Lists;
 
@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author gyl
  * @since 2.0.0
  */
-public class LearngingMessageQueue {
+public class LearningMessageQueue {
 
   private final LinkedList<String> queues = Lists.newLinkedList();
 
@@ -42,7 +42,7 @@ public class LearngingMessageQueue {
 
   private final Object lock = new Object();
 
-  public LearngingMessageQueue(int max) {
+  public LearningMessageQueue(int max) {
     this.max = max;
   }
 
@@ -80,7 +80,7 @@ public class LearngingMessageQueue {
   }
 
   public static void main(String[] args) {
-    LearngingMessageQueue mq = new LearngingMessageQueue(20);
+    LearningMessageQueue mq = new LearningMessageQueue(20);
     ExecutorService executorService = Executors.newFixedThreadPool(6);
     try {
       executorService.submit(
