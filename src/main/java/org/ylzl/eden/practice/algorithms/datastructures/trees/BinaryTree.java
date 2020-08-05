@@ -25,8 +25,7 @@ import lombok.ToString;
 import org.ylzl.eden.practice.data.json.LearningJackson;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 普通二叉树
@@ -35,138 +34,124 @@ import java.util.Stack;
  * @since 2.0.0
  */
 @Data
-@ToString
-@EqualsAndHashCode
 public class BinaryTree implements Serializable {
 
-  private static final long serialVersionUID = -8227444090020997250L;
+	private static final long serialVersionUID = -8227444090020997250L;
 
-  private TreeNode root;
+	private TreeNode root;
 
-  @Data
-  @ToString
-  static class TreeNode {
+	private int level;
 
-    int val;
-    TreeNode left;
-    TreeNode right;
+	public boolean insert(int val) {
+		if (root == null) {
+			root = new TreeNode(val);
+			level++;
+			return true;
+		}
 
-    public TreeNode(int val) {
-      this.val = val;
-    }
-  }
+		return insert(val, root, 1);
+	}
 
-  public boolean add(int val) {
-    if (root == null) {
-      root = new TreeNode(val);
-      return true;
-    }
+	private boolean insert(int val, TreeNode parent, int curLevel) {
+		if (val == parent.val) {
+			return false;
+		}
 
-    return add(val, root);
-  }
+		if (val > parent.val) {
+			if (parent.right == null) {
+				parent.right = new TreeNode(val);
+				if (curLevel > level) {
+					level = curLevel;
+				}
+				return true;
+			}
+			return insert(val, parent.right, curLevel + 1);
+		} else {
+			if (parent.left == null) {
+				parent.left = new TreeNode(val);
+				if (curLevel > level) {
+					level = curLevel;
+				}
+				return true;
+			}
+			return insert(val, parent.left, curLevel + 1);
+		}
+	}
 
-  public boolean add(int val, TreeNode node) {
-    if (val == node.val) {
-      return false;
-    }
+	public TreeNode search(int val) {
+		return search(val, root);
+	}
 
-    if (val > node.val) {
-      if (node.right != null) {
-        add(val, node.right);
-      } else {
-        node.right = new TreeNode(val);
-      }
-    }
+	private TreeNode search(int val, TreeNode parent) {
+		if (parent == null) {
+			return null;
+		}
 
-    if (val < node.val) {
-      if (node.left != null) {
-        add(val, node.left);
-      } else {
-        node.left = new TreeNode(val);
-      }
-    }
+		if (val == parent.val) {
+			return parent;
+		}
 
-    return true;
-  }
+		if (val < parent.val) {
+			return search(val, parent.left);
+		} else {
+			return search(val, parent.right);
+		}
+	}
 
-  public boolean search(int val) {
-    return search(val, root);
-  }
+	public int level() {
+		return depth(root) + 1;
+	}
 
-  public boolean search(int val, TreeNode node) {
-    if (node == null) {
-      return false;
-    }
+	public int height() {
+		return depth(root);
+	}
 
-    if (val == node.val) {
-      return true;
-    }
+	public int depth() {
+		return depth(root);
+	}
 
-    if (val < node.val) {
-      return search(val, node.left);
-    }
+	public int depth(TreeNode node) {
+		if (node == null || (node.left == null && node.right == null)) {
+			return 0;
+		}
 
-    if (val > node.val) {
-      return search(val, node.right);
-    }
+		return Math.max(depth(node.left), depth(node.right)) + 1;
+	}
 
-    return false;
-  }
+	public enum IteratorEnum {
+		PRE,
+		IN,
+		POST;
+	}
 
-  public int level() {
-    return depth(root) + 1;
-  }
+	public List<Integer> iterator(TreeNode node, IteratorEnum iteratorEnum) {
+		if (root == null) {
+			return null;
+		}
 
-  public int height() {
-    return depth(root);
-  }
+		List<Integer> nodes = Lists.newArrayList();
+		switch (iteratorEnum) {
+			case PRE:
+				preIterator(node, nodes);
+				break;
+			case IN:
+				inIterator(node, nodes);
+				break;
+			case POST:
+				postIterator(node, nodes);
+				break;
+		}
+		return nodes;
+	}
 
-  public int depth() {
-    return depth(root);
-  }
+	public void preIterator(TreeNode node, List<Integer> nodes) {
+		if (node == null) {
+			return;
+		}
 
-  public int depth(TreeNode node) {
-    if (node == null || (node.left == null && node.right == null)) {
-      return 0;
-    }
-
-    return Math.max(depth(node.left), depth(node.right)) + 1;
-  }
-
-  public enum IteratorEnum {
-    PRE,
-    IN,
-    POST;
-  }
-
-  public List<Integer> iterator(TreeNode node, IteratorEnum iteratorEnum) {
-    if (root == null) {
-      return null;
-    }
-
-    List<Integer> nodes = Lists.newArrayList();
-    switch (iteratorEnum) {
-      case PRE:
-        preIterator(node, nodes);
-        break;
-      case IN:
-        inIterator(node, nodes);
-        break;
-      case POST:
-        postIterator(node, nodes);
-        break;
-    }
-    return nodes;
-  }
-
-  public void preIterator(TreeNode node, List<Integer> nodes) {
-    if (node == null) {
-      return;
-    }
-
-    Stack<TreeNode> stack = new Stack<>();
-    TreeNode curNode = node;
-		while (curNode!= null || !stack.isEmpty()) {
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode curNode = node;
+		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
 				nodes.add(curNode.val);
 				stack.push(curNode);
@@ -178,24 +163,23 @@ public class BinaryTree implements Serializable {
 			}
 		}
 
-
-    /*nodes.add(node.val);
+    /*nodes.insert(node.val);
     if (node.left != null) {
       preIterator(node.left, nodes);
     }
     if (node.right != null) {
       preIterator(node.right, nodes);
     }*/
-  }
+	}
 
-  public void inIterator(TreeNode node, List<Integer> nodes) {
-    if (node == null) {
-      return;
-    }
+	public void inIterator(TreeNode node, List<Integer> nodes) {
+		if (node == null) {
+			return;
+		}
 
 		Stack<TreeNode> stack = new Stack<>();
 		TreeNode curNode = node;
-		while (curNode!= null || !stack.isEmpty()) {
+		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
 				stack.push(curNode);
 				curNode = curNode.left;
@@ -210,21 +194,21 @@ public class BinaryTree implements Serializable {
     /*if (node.left != null) {
       inIterator(node.left, nodes);
     }
-    nodes.add(node.val);
+    nodes.insert(node.val);
     if (node.right != null) {
       inIterator(node.right, nodes);
     }*/
-  }
+	}
 
-  public void postIterator(TreeNode node, List<Integer> nodes) {
-    if (node == null) {
-      return;
-    }
+	public void postIterator(TreeNode node, List<Integer> nodes) {
+		if (node == null) {
+			return;
+		}
 
 		Stack<TreeNode> stack = new Stack<>();
 		TreeNode curNode = node;
 		TreeNode visitedNode = node;
-		while (curNode!= null || !stack.isEmpty()) {
+		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
 				stack.push(curNode);
 				curNode = curNode.left;
@@ -240,58 +224,58 @@ public class BinaryTree implements Serializable {
 			}
 		}
 
-/*    if (node.left != null) {
+		/* if (node.left != null) {
       postIterator(node.left, nodes);
     }
     if (node.right != null) {
       postIterator(node.right, nodes);
     }
-    nodes.add(node.val);*/
-  }
+    nodes.insert(node.val);*/
+	}
 
-  public TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-    return rebuildTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
-  }
+	public TreeNode reConstruct(int[] pre, int[] in) {
+		return reConstruct(pre, 0, pre.length - 1, in, 0, in.length - 1);
+	}
 
-  private TreeNode rebuildTree(
-      int[] pre, int preStart, int preEnd, int[] in, int inStart, int inEnd) {
-    if (preStart > preEnd | inStart > inEnd) {
-    	return null;
+	private TreeNode reConstruct(int[] pre, int preStart, int preEnd, int[] in, int inStart, int inEnd) {
+		if (preStart > preEnd | inStart > inEnd) {
+			return null;
 		}
-    TreeNode root = new TreeNode(pre[preStart]); // 根节点
-    for (int i = inStart; i <= inEnd; i++) {  // 寻找根节点在中序序列的位置
-      if (in[i] == pre[preStart]) {
-        // 可以计算出中序序列的左右子树序列为:左：inStart~i -1，右：i+1~inEnd。
-        // 前序序列的左右子树：左：preStart+1~preStart+i-inStart，右：preStart+i-inStart+1~preEnd
-        root.left = rebuildTree(pre, preStart + 1, preStart + i - inStart, in, inStart, i - 1);
-        root.right = rebuildTree(pre, preStart + i - inStart + 1, preEnd, in, i + 1, inEnd);
-      }
-    }
-    return root;
-  }
+		TreeNode root = new TreeNode(pre[preStart]); // 根节点
+		for (int i = inStart; i <= inEnd; i++) { // 寻找根节点在中序序列的位置
+			if (in[i] == pre[preStart]) {
+				// 中序序列的左子树为 inStart 到 i-1，右子树为 i+1 到 inEnd
+				// 前序序列的左子树为 preStart+1 到 preStart+i-inStart，右子树为 preStart+i-inStart+1 到 preEnd
+				root.left = reConstruct(pre, preStart + 1, preStart + i - inStart, in, inStart, i - 1);
+				root.right = reConstruct(pre, preStart + i - inStart + 1, preEnd, in, i + 1, inEnd);
+			}
+		}
+		return root;
+	}
 
-  public static void main(String[] args) throws JsonProcessingException {
-    BinaryTree binaryTree = new BinaryTree();
-    binaryTree.add(10);
-    binaryTree.add(4);
-    binaryTree.add(1);
-    binaryTree.add(3);
-    binaryTree.add(2);
-    binaryTree.add(5);
-    binaryTree.add(11);
-    binaryTree.add(18);
-    binaryTree.add(12);
-    binaryTree.add(13);
-    binaryTree.add(14);
-    System.out.println(LearningJackson.toJSONString(binaryTree));
-    System.out.println("查找 5 是否存在：" + binaryTree.search(5));
-    System.out.println("查找 6 是否存在：" + binaryTree.search(6));
-    System.out.println("树的深度为：" + binaryTree.depth());
-    System.out.println("树根的右节点的深度为：" + binaryTree.depth(binaryTree.root.right));
-    System.out.println("树的高度为：" + binaryTree.height());
-    System.out.println("树的层数为：" + binaryTree.level());
-    System.out.println("前序遍历：" + binaryTree.iterator(binaryTree.root, IteratorEnum.PRE));
-    System.out.println("中序遍历：" + binaryTree.iterator(binaryTree.root, IteratorEnum.IN));
-    System.out.println("后序遍历：" + binaryTree.iterator(binaryTree.root, IteratorEnum.POST));
-  }
+	public static void main(String[] args) {
+		BinaryTree binaryTree = new BinaryTree();
+		binaryTree.insert(10);
+		binaryTree.insert(4);
+		binaryTree.insert(1);
+		binaryTree.insert(3);
+		binaryTree.insert(2);
+		binaryTree.insert(5);
+		binaryTree.insert(11);
+		binaryTree.insert(13);
+		binaryTree.insert(14);
+		binaryTree.insert(17);
+		binaryTree.insert(15);
+		binaryTree.insert(18);
+		System.out.println("查找 5 是否存在：" + binaryTree.search(5));
+		System.out.println("查找 6 是否存在：" + binaryTree.search(6));
+		System.out.println("树的深度为：" + binaryTree.depth());
+		System.out.println("树根的右节点 " + binaryTree.root.right + " 的深度为：" + binaryTree.depth(binaryTree.root.right));
+		System.out.println("树的高度为：" + binaryTree.height());
+		System.out.println("树的层数为：" + binaryTree.level());
+		System.out.println("前序遍历：" + binaryTree.iterator(binaryTree.root, IteratorEnum.PRE));
+		System.out.println("中序遍历：" + binaryTree.iterator(binaryTree.root, IteratorEnum.IN));
+		System.out.println("后序遍历：" + binaryTree.iterator(binaryTree.root, IteratorEnum.POST));
+		binaryTree.root.print();
+	}
 }
