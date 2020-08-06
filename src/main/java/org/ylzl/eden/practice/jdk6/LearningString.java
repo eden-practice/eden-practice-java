@@ -47,6 +47,7 @@ public class LearningString {
 		System.out.println(c == n);
 		System.out.println(c == o);
 		System.out.println(c == p);
+		System.out.println(d == e);
 		System.out.println(p == q);
 	}
 
@@ -76,8 +77,8 @@ public class LearningString {
 		str.changeString();
 
 		System.out.println("\nintern()：");
-		String internA = new String("AAA") + new String("BBB"); // 这个时候常量池没有 AAABBB
-		internA.intern(); // 尝试获取 AAABBB，发现没有，再放上去
+		String internA = new String("AAA") + new String("BBB");
+		internA.intern(); // 从常量池找不到 AAABBB，然后从堆也找不到 AAABBB，那么新建 AAABBB 到常量池，并返回引用
 		String internB = "AAA" + "BBB"; // 取到了 intern 的 AAABBB
     System.out.println(internA == internB);
 
@@ -85,5 +86,10 @@ public class LearningString {
 		String internD = "CCC" + "DDD";
 		internC.intern();
 		System.out.println(internC == internD);
+		System.out.println(internC.intern() == internD);
+
+		String s1 = new String("1");
+		String s2 = "1";
+		System.out.println(s1.intern() == s2);
   }
 }
