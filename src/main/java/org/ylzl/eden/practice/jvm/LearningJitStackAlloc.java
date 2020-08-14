@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,35 +15,37 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.collections.queue;
-
-import org.ylzl.eden.practice.collections.iterator.Collection;
-
-import java.util.concurrent.TimeUnit;
+package org.ylzl.eden.practice.jvm;
 
 /**
- * 阻塞队列
+ * JIT 栈上内存分配
  *
  * @author gyl
  * @since 2.0.0
  */
-public interface BlockingQueue<E> extends Queue<E> {
+public class LearningJitStackAlloc {
 
-  void put(E e) throws InterruptedException;
+	// JVM args：-Xmx4G -Xms4G -XX:+DoEscapeAnalysis -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError
+	// jps -l -> jmap -histo
+	public static void main(String[] args) {
+		long a1 = System.currentTimeMillis();
+		for (int i = 0; i < 1000000; i++) {
+			alloc();
+		}
+		long a2 = System.currentTimeMillis();
+		System.out.println("cost " + (a2 - a1) + " ms");
+		try {
+			Thread.sleep(100000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+	}
 
-  boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
+	private static void alloc() {
+		User user = new User();
+	}
 
-  E take() throws InterruptedException; // 检索并获取头部，等待元素返回
+	static class User {
 
-  E poll(long timeout, TimeUnit unit) throws InterruptedException;
-
-  int remainingCapacity();
-
-  boolean remove(Object o);
-
-  public boolean contains(Object o);
-
-  int drainTo(Collection<? super E> c);
-
-  int drainTo(Collection<? super E> c, int maxElements);
+	}
 }

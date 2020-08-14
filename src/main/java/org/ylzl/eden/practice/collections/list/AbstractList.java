@@ -17,9 +17,9 @@
 
 package org.ylzl.eden.practice.collections.list;
 
-import org.ylzl.eden.practice.collections.AbstractCollection;
-import org.ylzl.eden.practice.collections.Collection;
-import org.ylzl.eden.practice.collections.Iterator;
+import org.ylzl.eden.practice.collections.iterator.AbstractCollection;
+import org.ylzl.eden.practice.collections.iterator.Collection;
+import org.ylzl.eden.practice.collections.iterator.Iterator;
 
 /**
  * 抽象 List

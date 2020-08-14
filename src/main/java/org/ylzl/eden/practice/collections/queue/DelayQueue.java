@@ -17,8 +17,8 @@
 
 package org.ylzl.eden.practice.collections.queue;
 
-import org.ylzl.eden.practice.collections.Collection;
-import org.ylzl.eden.practice.collections.Iterator;
+import org.ylzl.eden.practice.collections.iterator.Collection;
+import org.ylzl.eden.practice.collections.iterator.Iterator;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,35 +15,33 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.collections.queue;
-
-import org.ylzl.eden.practice.collections.iterator.Collection;
-
-import java.util.concurrent.TimeUnit;
+package org.ylzl.eden.practice.jvm;
 
 /**
- * 阻塞队列
+ * 验证 Xss 参数对栈的深度的影响
  *
  * @author gyl
  * @since 2.0.0
  */
-public interface BlockingQueue<E> extends Queue<E> {
+public class LearningXssTriggerSOF {
 
-  void put(E e) throws InterruptedException;
+  private static int dept = 0;
 
-  boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
+  public static void recursion() {
+    // 减少局部变量的声明也可以节省栈帧大小，增加调用深度
+    long a = 1;
+    dept++;
+    recursion();
+  }
 
-  E take() throws InterruptedException; // 检索并获取头部，等待元素返回
-
-  E poll(long timeout, TimeUnit unit) throws InterruptedException;
-
-  int remainingCapacity();
-
-  boolean remove(Object o);
-
-  public boolean contains(Object o);
-
-  int drainTo(Collection<? super E> c);
-
-  int drainTo(Collection<? super E> c, int maxElements);
+  public static void main(String args[]) {
+    try {
+      recursion();
+    } catch (Throwable e) {
+      // 设置 -Xss128k，输出 363，只有一个局部变量时，栈的深度提升到 1822
+      // 设置 -Xss1024k，输出 24486~29980
+      System.out.println("调用栈的深度为：" + dept);
+      e.printStackTrace();
+    }
+  }
 }

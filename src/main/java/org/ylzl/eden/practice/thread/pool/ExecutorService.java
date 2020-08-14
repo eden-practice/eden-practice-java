@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.thread.pool;
 
-import org.ylzl.eden.practice.thread.Callable;
+import org.ylzl.eden.practice.thread.core.Callable;
 
 import java.util.Collection;
 import java.util.List;

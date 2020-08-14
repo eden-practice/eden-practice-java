@@ -3,7 +3,7 @@
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
- *  (the "License"); you may not use this file except in compliance with
+ * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -15,35 +15,22 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.collections.queue;
+package org.ylzl.eden.practice.jdk6;
 
-import org.ylzl.eden.practice.collections.iterator.Collection;
-
-import java.util.concurrent.TimeUnit;
+import java.lang.ref.WeakReference;
 
 /**
- * 阻塞队列
+ * 弱引用
  *
  * @author gyl
  * @since 2.0.0
  */
-public interface BlockingQueue<E> extends Queue<E> {
+public class LearningWeakReference {
 
-  void put(E e) throws InterruptedException;
-
-  boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
-
-  E take() throws InterruptedException; // 检索并获取头部，等待元素返回
-
-  E poll(long timeout, TimeUnit unit) throws InterruptedException;
-
-  int remainingCapacity();
-
-  boolean remove(Object o);
-
-  public boolean contains(Object o);
-
-  int drainTo(Collection<? super E> c);
-
-  int drainTo(Collection<? super E> c, int maxElements);
+	public static void main(String[] args) {
+		WeakReference<byte[]> reference = new WeakReference<byte[]>(new byte[1024*1024*5]);
+		System.out.println(reference.get());
+		System.gc();
+		System.out.println(reference.get());
+	}
 }

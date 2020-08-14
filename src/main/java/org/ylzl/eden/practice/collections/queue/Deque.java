@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.collections.queue;
 
-import org.ylzl.eden.practice.collections.Iterator;
+import org.ylzl.eden.practice.collections.iterator.Iterator;
 
 /**
  * 反队列（栈）

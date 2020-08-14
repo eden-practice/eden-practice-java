@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.collections.list;
 
-import org.ylzl.eden.practice.collections.Collection;
+import org.ylzl.eden.practice.collections.iterator.Collection;
 
 /**
  * List 接口

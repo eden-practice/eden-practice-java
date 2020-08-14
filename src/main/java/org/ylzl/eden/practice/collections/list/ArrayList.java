@@ -18,7 +18,7 @@
 package org.ylzl.eden.practice.collections.list;
 
 import lombok.ToString;
-import org.ylzl.eden.practice.collections.Iterator;
+import org.ylzl.eden.practice.collections.iterator.Iterator;
 
 import java.io.Serializable;
 import java.util.Arrays;

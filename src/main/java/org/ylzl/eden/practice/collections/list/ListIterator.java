@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.collections.list;
 
-import org.ylzl.eden.practice.collections.Iterator;
+import org.ylzl.eden.practice.collections.iterator.Iterator;
 
 /**
  * List 迭代器

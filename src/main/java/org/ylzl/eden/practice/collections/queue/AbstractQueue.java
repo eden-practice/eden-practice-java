@@ -17,8 +17,8 @@
 
 package org.ylzl.eden.practice.collections.queue;
 
-import org.ylzl.eden.practice.collections.AbstractCollection;
-import org.ylzl.eden.practice.collections.Collection;
+import org.ylzl.eden.practice.collections.iterator.AbstractCollection;
+import org.ylzl.eden.practice.collections.iterator.Collection;
 
 import java.util.NoSuchElementException;
 

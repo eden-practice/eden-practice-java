@@ -17,7 +17,7 @@
 
 package org.ylzl.eden.practice.collections.queue;
 
-import org.ylzl.eden.practice.collections.Collection;
+import org.ylzl.eden.practice.collections.iterator.Collection;
 
 /**
  * 队列接口
