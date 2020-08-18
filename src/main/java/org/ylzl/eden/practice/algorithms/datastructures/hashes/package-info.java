@@ -15,4 +15,4 @@
  * limitations under the License.
  */
 
-package org.ylzl.eden.practice.algorithms.datastructures.hash;
+package org.ylzl.eden.practice.algorithms.datastructures.hashes;
