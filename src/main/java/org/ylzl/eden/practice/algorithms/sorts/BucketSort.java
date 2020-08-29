@@ -17,6 +17,8 @@
 
 package org.ylzl.eden.practice.algorithms.sorts;
 
+import java.util.Arrays;
+
 /**
  * 桶排序
  *
@@ -25,24 +27,60 @@ package org.ylzl.eden.practice.algorithms.sorts;
  */
 public class BucketSort extends AbstractSort {
 
-	public static void main(String[] args) {
-		double[] unsorted = {22.01, 88.1, 0.5, 99, 11.11};
-		sort(unsorted);
-		print(unsorted);
+  public static void main(String[] args) {
+    double[] unsorted = {22.01, 88.1, 0.5, 99, 11.11, 66.66, 12.34, 233, 11};
+    sort(unsorted, 5);
+    print(unsorted);
+  }
+
+  private static void sort(double[] unsorted, int bucketSize) {
+    int len = unsorted.length;
+    double max = unsorted[0];
+    double min = unsorted[0];
+    for (int i = 1; i < len; i++) {
+      if (unsorted[i] > max) {
+        max = unsorted[i];
+      } else if (unsorted[i] < min) {
+        min = unsorted[i];
+      }
+    }
+
+		int bucketCount = (int) Math.floor((max - min) / bucketSize) + 1;
+		double[][] buckets = new double[bucketCount][0];
+		for (int i = 0; i < len; i++) {
+			int index = (int) Math.floor((unsorted[i] - min) / bucketSize); // 计算出目标桶的位置
+			buckets[index] = grow(buckets[index], unsorted[i]); // 对应桶增加一个元素
+		}
+
+		int index = 0;
+    for (int j = 0; j < bucketCount; j++) { // k
+      if (buckets[j].length <= 0) {
+        continue;
+      }
+      insertSort(buckets[j]);
+      for (double value : buckets[j]) {
+        unsorted[index++] = value;
+      }
+		}
+  }
+
+	private static double[] grow(double[] arr, double value) {
+		arr = Arrays.copyOf(arr, arr.length + 1);
+		arr[arr.length - 1] = value;
+		return arr;
 	}
 
-	private static void sort(double[] unsorted) {
-		double max = unsorted[0];
-		double min = unsorted[0];
-		for (int i = 1; i < unsorted.length; i++) {
-			if (unsorted[i] > max) {
-				max = unsorted[i];
-			}
-			if (unsorted[i] < min) {
-				min = unsorted[i];
+	private static void insertSort(double[] arr) {
+  	for (int i = 0; i < arr.length; i++) {
+  		int insertIndex = i;
+			double insertValue = arr[i];
+  		while (insertIndex > 0 && insertValue < arr[insertIndex-1]) {
+  			arr[insertIndex] = arr[insertIndex-1];
+				insertIndex--;
+  		}
+  		if (insertIndex != i) {
+				arr[insertIndex] = insertValue;
 			}
 		}
-		double parts = max - min;
 	}
-
 }

@@ -25,35 +25,41 @@ package org.ylzl.eden.practice.algorithms.sorts;
  */
 public class CountSort extends AbstractSort {
 
-	public static void main(String[] args) {
-		int[] unsorted = {22, 33, 66, 22, 11, 66, 55, 88, 0, 11, 66, 77, 99, 33, 44, 22, 77, 55, 11, 33, 44, 88, 0, 99, 11};
-		sort(unsorted);
-		print(unsorted);
-	}
+  public static void main(String[] args) {
+    int[] unsorted = {
+      22, 33, 66, 22, 11, 66, 55, 88, 10, 11,
+			66, 77, 99, 33, 44, 22, 77, 55, 11, 33
+    };
+    sort(unsorted);
+    print(unsorted);
+  }
 
-	private static void sort(int[] unsorted) {
-		int max = unsorted[0];
-		int min = unsorted[0];
-		for (int i = 1; i < unsorted.length; i++) {
-			if (unsorted[i] > max) {
-				max = unsorted[i];
-			}
-			if (unsorted[i] < min) {
-				min = unsorted[i];
-			}
-		}
-		int size = max - min + 1;
-		int[] count = new int[size];
-		for (int i = 0; i < unsorted.length; i++) {
-			count[Math.abs(unsorted[i] - size) - 1]++;
-		}
-		int index = 0;
-		for (int j = 0; j < count.length; j++) {
-			int temp = count[j];
-			while (temp > 0) {
-				unsorted[index++] = j;
-				temp--;
-			}
-		}
-	}
+  private static void sort(int[] unsorted) {
+    int len = unsorted.length;
+    int max = unsorted[0];
+    int min = unsorted[0];
+    for (int i = 1; i < len; i++) {
+      if (max < unsorted[i]) {
+        max = unsorted[i];
+      }
+      if (min > unsorted[i]) {
+        min = unsorted[i];
+      }
+    }
+
+    int size = max - min + 1;
+    int[] counts = new int[size];
+    for (int j = 0; j < len; j++) {
+      counts[unsorted[j] - min]++;
+    }
+
+    int index = 0;
+    for (int k = 0; k < size; k++) {
+      int count = counts[k];
+      while (count > 0) {
+        unsorted[index++] = k+min;
+        count--;
+      }
+    }
+  }
 }
