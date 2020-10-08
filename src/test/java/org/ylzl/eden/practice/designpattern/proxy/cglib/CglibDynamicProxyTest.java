@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author gyl
  * @since 2.0.0
  */
-class RpcClientProxyTest {
+class CglibDynamicProxyTest {
 
   @Test
   void assertThatInvokeBeanSuccess() {

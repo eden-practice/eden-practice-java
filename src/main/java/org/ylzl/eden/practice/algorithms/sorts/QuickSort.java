@@ -59,7 +59,7 @@ public class QuickSort extends AbstractSort {
         swap(unsorted, left, right);
       }
     }
-    swap(unsorted,left, pivotIndex);
+    swap(unsorted, left, pivotIndex);
     return left;
   }
 }

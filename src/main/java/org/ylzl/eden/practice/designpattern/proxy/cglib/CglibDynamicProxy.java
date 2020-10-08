@@ -21,7 +21,6 @@ import net.sf.cglib.core.DebuggingClassWriter;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
-import sun.misc.ProxyGenerator;
 
 import java.lang.reflect.Method;
 
@@ -63,6 +62,4 @@ public class CglibDynamicProxy implements MethodInterceptor {
 	private void after() {
 		System.out.println("Cglib 动态代理后处理");
 	}
-
-
 }

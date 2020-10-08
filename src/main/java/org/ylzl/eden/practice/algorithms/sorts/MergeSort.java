@@ -38,30 +38,31 @@ public class MergeSort extends AbstractSort {
 
   	int mid = start + ((end - start) >> 1);
   	sort(unsorted, start, mid);
-  	sort(unsorted, mid+1, end);
+  	sort(unsorted, mid + 1, end);
   	merge(unsorted, start, mid, end);
 	}
 
 	private static void merge(int[] unsorted, int start, int mid, int end) {
-  	int[] merge = new int[end - start + 1];
   	int mergeIndex = 0;
+  	int len = end - start + 1;
+  	int[] merges = new int[len];
   	int left = start;
   	int right = mid + 1;
   	while (left <= mid && right <= end) {
-  		if (unsorted[left] <= unsorted[right]) {
-  			merge[mergeIndex++] = unsorted[left++];
+  		if (unsorted[left] < unsorted[right]) {
+  			merges[mergeIndex++] = unsorted[left++];
 			} else {
-				merge[mergeIndex++] = unsorted[right++];
+				merges[mergeIndex++] = unsorted[right++];
 			}
 		}
   	while (left <= mid) {
-			merge[mergeIndex++] = unsorted[left++];
+			merges[mergeIndex++] = unsorted[left++];
 		}
 		while (right <= end) {
-			merge[mergeIndex++] = unsorted[right++];
+			merges[mergeIndex++] = unsorted[right++];
 		}
-		for (int i = 0; i < merge.length; i++) {
-			unsorted[start + i] = merge[i];
+		for (int i = 0; i < len; i++) {
+			unsorted[start + i] = merges[i];
 		}
 	}
 }

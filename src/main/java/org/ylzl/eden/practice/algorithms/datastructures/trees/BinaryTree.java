@@ -17,15 +17,12 @@
 
 package org.ylzl.eden.practice.algorithms.datastructures.trees;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.collect.Lists;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import org.ylzl.eden.practice.data.json.LearningJackson;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * 普通二叉树
@@ -163,7 +160,7 @@ public class BinaryTree implements Serializable {
 			}
 		}
 
-    /*nodes.insert(node.val);
+    /*nodes.add(node.val);
     if (node.left != null) {
       preIterator(node.left, nodes);
     }
@@ -194,7 +191,7 @@ public class BinaryTree implements Serializable {
     /*if (node.left != null) {
       inIterator(node.left, nodes);
     }
-    nodes.insert(node.val);
+    nodes.add(node.val);
     if (node.right != null) {
       inIterator(node.right, nodes);
     }*/
@@ -230,7 +227,7 @@ public class BinaryTree implements Serializable {
     if (node.right != null) {
       postIterator(node.right, nodes);
     }
-    nodes.insert(node.val);*/
+    nodes.add(node.val);*/
 	}
 
 	public TreeNode reConstruct(int[] pre, int[] in) {

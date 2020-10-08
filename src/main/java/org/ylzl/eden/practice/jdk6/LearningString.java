@@ -82,8 +82,8 @@ public class LearningString {
 		String internB = "AAA" + "BBB"; // 取到了 intern 的 AAABBB
     System.out.println(internA == internB);
 
-		String internC = new String("CCC") + new String("DDD");
 		String internD = "CCC" + "DDD";
+		String internC = new String("CCC") + new String("DDD");
 		internC.intern();
 		System.out.println(internC == internD);
 		System.out.println(internC.intern() == internD);
