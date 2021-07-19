@@ -40,14 +40,14 @@ public class LearningCyclicBarrier {
       new Test(barrier).start();
     }
 
-    try {
+/*    try {
       Thread.sleep(5000);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
     for (int i = 0; i < n; i++) {
       new Test(barrier).start();
-    }
+    }*/
   }
 
   static class Test extends Thread {

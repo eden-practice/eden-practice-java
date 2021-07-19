@@ -95,24 +95,22 @@ public class LearningReentrantLock {
   public void lockInterruptibly() throws InterruptedException {
     Thread thread =
         new Thread(
-            new Runnable() {
-              @SneakyThrows
-              @Override
-              public void run() {
-                lock.lockInterruptibly();
-                try {
-                  for (int i = 0; ; i++) {
-                    if (Thread.currentThread().isInterrupted()) {
-                      System.out.println("中断...");
-                      return;
-                    }
-                    System.out.println("自旋...");
-                  }
-                } finally {
-                  lock.unlock();
-                }
-              }
-            });
+					() -> {
+						try {
+							lock.lockInterruptibly();
+							for (int i = 0; ; i++) {
+								if (Thread.currentThread().isInterrupted()) {
+									System.out.println("中断...");
+									return;
+								}
+								System.out.println("自旋...");
+							}
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						} finally {
+							lock.unlock();
+						}
+					});
     thread.start();
     Thread.sleep(1_000L);
     thread.interrupt();
