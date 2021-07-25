@@ -32,7 +32,7 @@ WARNING: 这是一个 Java 练习库
 | JDBC 驱动
 
 | org.ylzl.eden.practice.jdk6
-| Java 6 Deprecated
+| Java 6 (Deprecated)
 
 | org.ylzl.eden.practice.jdk8
 | Java 8 LTS
