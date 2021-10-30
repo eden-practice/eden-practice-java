@@ -22,7 +22,7 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.concurrent
 | Java 并发
 
-| org.ylzl.eden.practice.designpattern
+| org.ylzl.eden.practice.design.pattern
 | Java 设计模式
 
 | org.ylzl.eden.practice.io
@@ -46,13 +46,13 @@ WARNING: 这是一个 Java 练习库
 | org.ylzl.eden.practice.jvm
 | Java 虚拟机
 
-| org.ylzl.eden.practice.net
+| org.ylzl.eden.practice
 | Java 网络编程
 
 | org.ylzl.eden.practice.pool
 | Java 池化
 
-| org.ylzl.eden.practice.springframework
+| org.ylzl.eden.practice.spring.framework
 | Spring 框架
 
 | org.ylzl.eden.practice.thread

@@ -4,18 +4,30 @@
 				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<packaging>jar</packaging>
-	<artifactId>eden-practice-java</artifactId>
-	<name>practice</name>
-	<version>1.0.0-SNAPSHOT</version>
-	<description>Eden* Practice For Java</description>
-
 	<parent>
 		<groupId>org.ylzl</groupId>
 		<artifactId>eden-spring-boot-parent</artifactId>
 		<version>2.0.0-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
+	<groupId>org.ylzl</groupId>
+	<artifactId>eden-practice-java</artifactId>
+	<packaging>pom</packaging>
+	<name>practice</name>
+	<version>1.0.0-SNAPSHOT</version>
+	<description>Eden* Practice For Java</description>
+
+	<modules>
+		<module>eden-practice-algorithms</module>
+		<module>eden-practice-design-pattern</module>
+		<module>eden-practice-dubbo</module>
+		<module>eden-practice-kafka</module>
+		<module>eden-practice-mybatis</module>
+		<module>eden-practice-redis</module>
+		<module>eden-practice-spring-boot</module>
+		<module>eden-practice-spring-framework</module>
+		<module>eden-practice-protobuf</module>
+	</modules>
 
 	<distributionManagement>
 		<repository>
@@ -46,9 +58,9 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/eden-lab/eden-practice</url>
-		<connection>scm:git:git://github.com/eden-lab/eden-practice.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/eden-lab/eden-practice.git
+		<url>https://github.com/eden-lab/eden-practice-java</url>
+		<connection>scm:git:git://github.com/eden-lab/eden-practice-java.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/eden-lab/eden-practice-java.git
 		</developerConnection>
 	</scm>
 
@@ -73,10 +85,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.xolstice.maven.plugins</groupId>
-				<artifactId>protobuf-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
@@ -131,10 +139,6 @@
 			<artifactId>guava</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 		</dependency>
@@ -147,64 +151,6 @@
 			<artifactId>commons-codec</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-netty</artifactId>
-			<exclusions>
-				<exclusion>
-					<artifactId>error_prone_annotations</artifactId>
-					<groupId>com.google.errorprone</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>perfmark-api</artifactId>
-					<groupId>io.perfmark</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>animal-sniffer-annotations</artifactId>
-					<groupId>org.codehaus.mojo</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-protobuf</artifactId>
-			<exclusions>
-				<exclusion>
-					<artifactId>grpc-api</artifactId>
-					<groupId>io.grpc</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>error_prone_annotations</artifactId>
-					<groupId>com.google.errorprone</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>animal-sniffer-annotations</artifactId>
-					<groupId>org.codehaus.mojo</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-stub</artifactId>
-			<exclusions>
-				<exclusion>
-					<artifactId>grpc-api</artifactId>
-					<groupId>io.grpc</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>error_prone_annotations</artifactId>
-					<groupId>com.google.errorprone</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>animal-sniffer-annotations</artifactId>
-					<groupId>org.codehaus.mojo</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-all</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
 		</dependency>
@@ -215,10 +161,6 @@
 		<dependency>
 			<groupId>org.reflections</groupId>
 			<artifactId>reflections</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mapstruct</groupId>
